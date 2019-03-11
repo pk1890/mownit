@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{k+kt}{float} \PYG{n+nf}{kahanSum}\PYG{p}{(}\PYG{k+kt}{float}\PYG{o}{*} \PYG{n}{tab}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{len}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k+kt}{float} \PYG{n}{sum} \PYG{o}{=} \PYG{n}{tab}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+		\PYG{k+kt}{float} \PYG{n}{compensate} \PYG{o}{=} \PYG{l+m+mf}{0.0}\PYG{p}{;}
+		\PYG{k+kt}{float} \PYG{n}{tmp}\PYG{p}{,} \PYG{n}{buf}\PYG{p}{;}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{len}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+			\PYG{n}{tmp} \PYG{o}{=} \PYG{n}{tab}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{compensate}\PYG{p}{;}
+			\PYG{n}{buf} \PYG{o}{=} \PYG{n}{sum} \PYG{o}{+} \PYG{n}{tmp}\PYG{p}{;}
+			\PYG{n}{compensate} \PYG{o}{=} \PYG{p}{(}\PYG{n}{buf} \PYG{o}{\PYGZhy{}} \PYG{n}{sum}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{tmp}\PYG{p}{;}
+			\PYG{n}{sum} \PYG{o}{=} \PYG{n}{buf}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{return} \PYG{n}{sum}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

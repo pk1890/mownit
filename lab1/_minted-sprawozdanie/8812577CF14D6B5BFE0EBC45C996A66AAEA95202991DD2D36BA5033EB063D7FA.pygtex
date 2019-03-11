@@ -1,0 +1,123 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}vector\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}cmath\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}list\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}ctime\PYGZgt{}}
+
+\PYG{c+cp}{\PYGZsh{}define MAXVAL 1.0f}
+\PYG{c+cp}{\PYGZsh{}define MINVAL 0.0f}
+
+\PYG{k}{using} \PYG{k}{namespace} \PYG{n}{std}\PYG{p}{;}
+
+
+
+\PYG{k+kt}{float} \PYG{n+nf}{max}\PYG{p}{(}\PYG{k}{const} \PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{tab}\PYG{p}{)\PYGZob{}}
+	\PYG{k+kt}{float} \PYG{n}{buff} \PYG{o}{=} \PYG{n}{tab}\PYG{p}{.}\PYG{n}{front}\PYG{p}{();}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto} \PYG{n}{i} \PYG{o}{=} \PYG{n}{tab}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();} \PYG{n}{i} \PYG{o}{!=} \PYG{n}{tab}\PYG{p}{.}\PYG{n}{end}\PYG{p}{();} \PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+		\PYG{k}{if}\PYG{p}{(}\PYG{o}{*}\PYG{n}{i} \PYG{o}{\PYGZgt{}} \PYG{n}{buff}\PYG{p}{)} \PYG{n}{buff} \PYG{o}{=} \PYG{o}{*}\PYG{n}{i}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{return} \PYG{n}{buff}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k+kt}{float} \PYG{n+nf}{min}\PYG{p}{(}\PYG{k}{const} \PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{tab}\PYG{p}{)\PYGZob{}}
+	\PYG{k+kt}{float} \PYG{n}{buff} \PYG{o}{=} \PYG{n}{tab}\PYG{p}{.}\PYG{n}{front}\PYG{p}{();}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto} \PYG{n}{i} \PYG{o}{=} \PYG{n}{tab}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();} \PYG{n}{i} \PYG{o}{!=} \PYG{n}{tab}\PYG{p}{.}\PYG{n}{end}\PYG{p}{();} \PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+		\PYG{k}{if}\PYG{p}{(}\PYG{o}{*}\PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{buff}\PYG{p}{)} \PYG{n}{buff} \PYG{o}{=} \PYG{o}{*}\PYG{n}{i}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{return} \PYG{n}{buff}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{float} \PYG{n+nf}{max}\PYG{p}{(}\PYG{k+kt}{float} \PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{b}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{return} \PYG{n}{a}\PYG{o}{\PYGZgt{}}\PYG{n}{b} \PYG{o}{?} \PYG{n+nl}{a} \PYG{p}{:} \PYG{n}{b}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{k\PYGZus{}mins}\PYG{p}{(} \PYG{k}{const} \PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{workingTab}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{n\PYGZus{}buck}\PYG{p}{)\PYGZob{}}
+	\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{result}\PYG{p}{;}
+	\PYG{k}{if}\PYG{p}{(}\PYG{n}{k} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{k}{return} \PYG{n}{result}\PYG{p}{;}
+	\PYG{c+c1}{//cout \PYGZlt{}\PYGZlt{} \PYGZsq{}D\PYGZsq{} \PYGZlt{}\PYGZlt{} flush;}
+	
+	\PYG{k+kt}{float} \PYG{n}{minim} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{workingTab}\PYG{p}{);}
+	\PYG{k+kt}{float} \PYG{n}{maxim} \PYG{o}{=} \PYG{n}{max}\PYG{p}{(}\PYG{n}{workingTab}\PYG{p}{);}
+
+	\PYG{k+kt}{float} \PYG{n}{min1} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k+kt}{float} \PYG{n}{max1}\PYG{o}{=} \PYG{n}{maxim} \PYG{o}{\PYGZhy{}} \PYG{n}{minim}\PYG{p}{;}
+
+	\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{buckets}\PYG{p}{;}
+	\PYG{n}{buckets}\PYG{p}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{n\PYGZus{}buck}\PYG{p}{);}
+
+
+	\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto} \PYG{n}{tabElem} \PYG{o}{=} \PYG{n}{workingTab}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();} \PYG{n}{tabElem} \PYG{o}{!=} \PYG{n}{workingTab}\PYG{p}{.}\PYG{n}{end}\PYG{p}{();} \PYG{o}{++}\PYG{n}{tabElem}\PYG{p}{)\PYGZob{}}
+		\PYG{n}{buckets}\PYG{p}{[}\PYG{n}{floor}\PYG{p}{(}
+			\PYG{n}{min}\PYG{p}{((}\PYG{k+kt}{float}\PYG{p}{)(}\PYG{n}{n\PYGZus{}buck}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{),} \PYG{c+c1}{//min dlatego żeby maksymalna wartość nie trafiła do kubełka o numerze n\PYGZus{}buck}
+				\PYG{n}{max}\PYG{p}{(}\PYG{n}{n\PYGZus{}buck}\PYG{o}{+}\PYG{n}{log2}\PYG{p}{(}\PYG{o}{*}\PYG{n}{tabElem}\PYG{o}{\PYGZhy{}}\PYG{n}{minim}\PYG{p}{),} \PYG{c+c1}{//wszystkie watrości mniejsze niż 2\PYGZca{}(n\PYGZus{}buck) do zerowego}
+				\PYG{l+m+mf}{0.0f}\PYG{p}{)))].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{o}{*}\PYG{n}{tabElem}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+
+
+	\PYG{c+c1}{//cout \PYGZlt{}\PYGZlt{} \PYGZdq{}=========== POTRZEBUJE JESZCZE \PYGZdq{} \PYGZlt{}\PYGZlt{} k \PYGZlt{}\PYGZlt{}\PYGZdq{} liczb ================\PYGZbs{}n\PYGZdq{};}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{buckets}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+		\PYG{c+c1}{//   cout \PYGZlt{}\PYGZlt{} \PYGZdq{}W kubelku nr \PYGZdq{} \PYGZlt{}\PYGZlt{} i \PYGZlt{}\PYGZlt{} \PYGZdq{} jest \PYGZdq{} \PYGZlt{}\PYGZlt{} buckets[i].size() \PYGZlt{}\PYGZlt{} \PYGZdq{}liczb\PYGZdq{} \PYGZlt{}\PYGZlt{} endl;}
+		\PYG{k}{if}\PYG{p}{(}\PYG{n}{result}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()} \PYG{o}{+} \PYG{n}{buckets}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{size}\PYG{p}{()} \PYG{o}{\PYGZlt{}=} \PYG{n}{k}\PYG{p}{)\PYGZob{}}
+			\PYG{n}{result}\PYG{p}{.}\PYG{n}{merge}\PYG{p}{(}\PYG{n}{buckets}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{else}\PYG{p}{\PYGZob{}}
+			\PYG{n}{result}\PYG{p}{.}\PYG{n}{merge}\PYG{p}{(}\PYG{n}{k\PYGZus{}mins}\PYG{p}{(}\PYG{n}{buckets}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{k} \PYG{o}{\PYGZhy{}} \PYG{n}{result}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(),} \PYG{n}{n\PYGZus{}buck}\PYG{p}{));}
+			\PYG{k}{break}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{return} \PYG{n}{result}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{classic\PYGZus{}k\PYGZus{}mins}\PYG{p}{(}\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{workingTab}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{)\PYGZob{}}
+	\PYG{n}{workingTab}\PYG{p}{.}\PYG{n}{sort}\PYG{p}{();}
+	\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{res}\PYG{p}{;}
+	\PYG{k+kt}{int} \PYG{n}{it} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto} \PYG{n}{i} \PYG{o}{=} \PYG{n}{workingTab}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();} \PYG{n}{i} \PYG{o}{!=} \PYG{n}{workingTab}\PYG{p}{.}\PYG{n}{end}\PYG{p}{()} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{it} \PYG{o}{\PYGZlt{}} \PYG{n}{k}\PYG{p}{;} \PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+		\PYG{n}{res}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{o}{*}\PYG{n}{i}\PYG{p}{);}
+		\PYG{n}{it}\PYG{o}{++}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{return} \PYG{n}{res}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k+kt}{int} \PYG{n}{main}\PYG{p}{()\PYGZob{}}
+	\PYG{n}{srand}\PYG{p}{(}\PYG{n}{time}\PYG{p}{(}\PYG{n+nb}{NULL}\PYG{p}{));}
+	\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{test} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+m+mf}{2.5}\PYG{p}{,} \PYG{l+m+mi}{34}\PYG{p}{,} \PYG{l+m+mf}{5.3}\PYG{p}{,} \PYG{l+m+mf}{34.5}\PYG{p}{,} \PYG{l+m+mf}{.43}\PYG{p}{,} \PYG{l+m+mf}{5.4}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{123094}\PYG{p}{,} \PYG{l+m+mi}{542}\PYG{p}{,} \PYG{l+m+mf}{0.0432423}\PYG{p}{,} \PYG{l+m+mf}{0.0432434}\PYG{p}{\PYGZcb{};}
+	\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{test2}\PYG{p}{;}
+	\PYG{k}{const} \PYG{k+kt}{float} \PYG{n}{LIM} \PYG{o}{=} \PYG{l+m+mf}{0.3}\PYG{p}{;}
+	\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{K} \PYG{o}{=} \PYG{l+m+mi}{10}\PYG{p}{;}
+
+
+
+	\PYG{k+kt}{clock\PYGZus{}t} \PYG{n}{start}\PYG{p}{,} \PYG{n}{end}\PYG{p}{;}
+	\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{res}\PYG{p}{;}
+
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{100}\PYG{p}{;} \PYG{n}{N} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mi}{10000000}\PYG{p}{;} \PYG{n}{N}\PYG{o}{*=}\PYG{l+m+mi}{10}\PYG{p}{)\PYGZob{}}
+		\PYG{n}{test2}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+		\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}n}\PYG{l+s}{Testing 10 min of \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{N} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} numbers}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{N}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+			\PYG{n}{test2}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{rand}\PYG{p}{())} \PYG{o}{/} \PYG{p}{(}\PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{RAND\PYGZus{}MAX}\PYG{o}{/}\PYG{n}{LIM}\PYG{p}{)));}
+		\PYG{p}{\PYGZcb{}}
+
+		\PYG{n}{start} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+		\PYG{n}{res} \PYG{o}{=} \PYG{n}{k\PYGZus{}mins}\PYG{p}{(}\PYG{n}{test2}\PYG{p}{,} \PYG{n}{K}\PYG{p}{,} \PYG{l+m+mi}{256}\PYG{p}{);}
+		\PYG{n}{end} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+		\PYG{n}{res}\PYG{p}{.}\PYG{n}{sort}\PYG{p}{();}
+
+		\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{Exercise version time elapsed: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{n}{CLOCKS\PYGZus{}PER\PYGZus{}SEC} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} ===========}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto} \PYG{n}{i} \PYG{o}{=} \PYG{n}{res}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();} \PYG{n}{i} \PYG{o}{!=} \PYG{n}{res}\PYG{p}{.}\PYG{n}{end}\PYG{p}{();} \PYG{o}{++}\PYG{n}{i}\PYG{p}{)} \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{o}{*}\PYG{n}{i} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} \PYGZdq{}}\PYG{p}{;}
+
+		\PYG{n}{start} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+		\PYG{n}{res} \PYG{o}{=} \PYG{n}{classic\PYGZus{}k\PYGZus{}mins}\PYG{p}{(}\PYG{n}{test2}\PYG{p}{,} \PYG{n}{K}\PYG{p}{);}
+		\PYG{n}{end} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+		\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{Normal version time elapsed: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{n}{CLOCKS\PYGZus{}PER\PYGZus{}SEC} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} ===========}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+		\PYG{n}{res}\PYG{p}{.}\PYG{n}{sort}\PYG{p}{();}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto} \PYG{n}{i} \PYG{o}{=} \PYG{n}{res}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();} \PYG{n}{i} \PYG{o}{!=} \PYG{n}{res}\PYG{p}{.}\PYG{n}{end}\PYG{p}{();} \PYG{o}{++}\PYG{n}{i}\PYG{p}{)} \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{o}{*}\PYG{n}{i} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} \PYGZdq{}}\PYG{p}{;}
+		\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

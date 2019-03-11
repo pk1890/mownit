@@ -13,7 +13,7 @@ for line in contents:
         dataEnd = True
     if(not dataEnd):
         xs.append(i*25000)
-        ys.append(float(line.split()[1]))
+        ys.append(float(line.split()[2]))
         i+=1
     else:
         print(line)    

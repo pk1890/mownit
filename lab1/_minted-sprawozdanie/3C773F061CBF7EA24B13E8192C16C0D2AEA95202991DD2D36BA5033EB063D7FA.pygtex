@@ -1,0 +1,44 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+	\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}iomanip\PYGZgt{}}
+	\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}ctime\PYGZgt{}}
+	\PYG{c+cp}{\PYGZsh{}define e7 10000000}
+	\PYG{c+cp}{\PYGZsh{}define C 0.3728}
+	\PYG{k}{using} \PYG{k}{namespace} \PYG{n}{std}\PYG{p}{;}
+
+	\PYG{k+kt}{float} \PYG{n+nf}{normal\PYGZus{}sum}\PYG{p}{();}
+
+
+	\PYG{k+kt}{float} \PYG{o}{*}\PYG{n}{tab}\PYG{p}{;}
+	\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+		\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{setprecision}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{);}
+		\PYG{k+kt}{clock\PYGZus{}t} \PYG{n}{start}\PYG{p}{,} \PYG{n}{end}\PYG{p}{;}
+
+		\PYG{n}{tab} \PYG{o}{=} \PYG{k}{new} \PYG{k+kt}{float}\PYG{p}{[}\PYG{n}{e7}\PYG{p}{];}
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{e7}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{n}{tab}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{C}\PYG{p}{;}
+
+		\PYG{n}{start} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+		\PYG{k+kt}{float} \PYG{n}{sum} \PYG{o}{=} \PYG{n}{normal\PYGZus{}sum}\PYG{p}{();}
+		\PYG{n}{end} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+		\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{Normal adding time elapsed: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{n}{CLOCKS\PYGZus{}PER\PYGZus{}SEC} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} ===========\PYGZdq{}}\PYG{p}{;}
+		\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{SUM/ERROR/RERROR  \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{sum}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{e7}\PYG{o}{*}\PYG{n}{C} \PYG{o}{\PYGZhy{}} \PYG{n}{sum}\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{e7}\PYG{o}{*}\PYG{n}{C} \PYG{o}{\PYGZhy{}} \PYG{n}{sum}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{n}{C}\PYG{o}{*}\PYG{n}{e7}\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZlt{}}  \PYG{n}{endl}\PYG{p}{;}
+
+
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k+kt}{float} \PYG{n+nf}{normal\PYGZus{}sum}\PYG{p}{()\PYGZob{}}
+	
+		\PYG{k+kt}{float} \PYG{n}{sum} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+		\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{e7}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+			\PYG{n}{sum} \PYG{o}{+=} \PYG{n}{tab}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+			\PYG{k}{if}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{25000} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+
+			\PYG{c+c1}{// cout \PYGZlt{}\PYGZlt{} i\PYGZlt{}\PYGZlt{} \PYGZdq{}: \PYGZdq{} \PYGZlt{}\PYGZlt{} (i*C \PYGZhy{} sum) \PYGZlt{}\PYGZlt{} endl;}
+			\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{sum}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{i}\PYG{o}{*}\PYG{n}{C} \PYG{o}{\PYGZhy{}} \PYG{n}{sum}\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{} \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{i}\PYG{o}{*}\PYG{n}{C} \PYG{o}{\PYGZhy{}} \PYG{n}{sum}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{n}{C}\PYG{o}{*}\PYG{n}{e7}\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZlt{}}  \PYG{n}{endl}\PYG{p}{;}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}\PYGZsh{}DATA\PYGZus{}END}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+		\PYG{k}{return} \PYG{n}{sum}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

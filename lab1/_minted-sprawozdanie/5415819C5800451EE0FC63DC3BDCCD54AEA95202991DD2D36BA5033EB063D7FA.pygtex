@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+
+	\PYG{k}{using} \PYG{k}{namespace} \PYG{n}{std}\PYG{p}{;}
+
+
+	\PYG{k+kt}{float} \PYG{n+nf}{epsilon}\PYG{p}{(}\PYG{k+kt}{float} \PYG{n}{curr}\PYG{p}{)\PYGZob{}}
+		\PYG{k}{if}\PYG{p}{(}\PYG{l+m+mf}{1.0f} \PYG{o}{+} \PYG{n}{curr}\PYG{o}{/}\PYG{l+m+mi}{2} \PYG{o}{!=} \PYG{l+m+mf}{1.0f}\PYG{p}{)\PYGZob{}}
+			\PYG{k}{return} \PYG{n}{epsilon}\PYG{p}{(}\PYG{n}{curr}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{else} \PYG{k}{return} \PYG{n}{curr}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+
+	\PYG{k+kt}{double} \PYG{n+nf}{epsilon}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{curr}\PYG{p}{)\PYGZob{}}
+		\PYG{k}{if}\PYG{p}{(}\PYG{l+m+mf}{1.0} \PYG{o}{+} \PYG{n}{curr}\PYG{o}{/}\PYG{l+m+mi}{2} \PYG{o}{!=} \PYG{l+m+mf}{1.0}\PYG{p}{)\PYGZob{}}
+			\PYG{k}{return} \PYG{n}{epsilon}\PYG{p}{(}\PYG{n}{curr}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}}
+		\PYG{k}{else} \PYG{k}{return} \PYG{n}{curr}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+		\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}epsilon dla floata: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{epsilon}\PYG{p}{(}\PYG{l+m+mf}{1.0f}\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+		\PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}epsilon dla double\PYGZsq{}a: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{epsilon}\PYG{p}{(}\PYG{l+m+mf}{1.0}\PYG{p}{)} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+
+	\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
