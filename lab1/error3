@@ -400,11 +400,11 @@
 2144224.75 -273912.25 -0.146086533333
 #DATA_END
 
-Normal adding time elapsed: 0.037868 ===========
+Normal adding time elapsed: 0.016288 ===========
 SUM/ERROR/RERROR  2150474.5 -275474.5 -0.146919733333
 
-Recursive adding time elapsed: 0.085686 ===========
+Recursive adding time elapsed: 0.033547 ===========
 SUM/ERROR/RERROR  1875000 0 0
 
-Kahan adding time elapsed: 0.099174 ===========
+Kahan adding time elapsed: 0.04164 ===========
 SUM/ERROR/RERROR  1875000 0 0

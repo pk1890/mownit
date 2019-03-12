@@ -2,8 +2,8 @@
 #include<iomanip>
 #include<ctime>
 #define e7 10000000
-//#define C (0.25+0.125)/2
-#define C 0.503940
+#define C (0.25+0.125)/2
+//#define C 0.503940
 
 using namespace std;
 

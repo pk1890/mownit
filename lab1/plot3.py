@@ -18,6 +18,6 @@ for line in contents:
     else:
         print(line)    
 
-print("Bezwzględny: ", ys[-1], "Względny: ", ys[-1]/(1e7*0.5))
+#print("Bezwzględny: ", ys[-1], "Względny: ", ys[-1]/(1e7*0.5))
 plt.plot(xs, ys)
 plt.show()

@@ -4,9 +4,6 @@
 #include <list>
 #include <ctime>
 
-#define MAXVAL 1.0f
-#define MINVAL 0.0f
-
 using namespace std;
 
 
@@ -50,7 +47,7 @@ list<float> k_mins( const list<float> workingTab, int k, int n_buck){
     for(auto tabElem = workingTab.begin(); tabElem != workingTab.end(); ++tabElem){
         buckets[floor(
             min((float)(n_buck-1), //min dlatego żeby maksymalna wartość nie trafiła do kubełka o numerze n_buck  
-                max(n_buck+log2(*tabElem-minim), //wszystkie watrości mniejsze niż 2^(n_buck) do zerowego
+                max(n_buck+log2(*tabElem-minim), //wszystkie watrości mniejsze niż 2^(-n_buck) do zerowego
                 0.0f)))].push_back(*tabElem);
     }
 
@@ -93,7 +90,7 @@ int main(){
     clock_t start, end;
     list<float> res;
 
-    for(int N = 100; N <= 10000000; N*=10){
+    for(int N = 500; N <= 50000000; N*=10){
         test2.clear();
         cout << "\n\nTesting 10 min of " << N << " numbers\n";
 
