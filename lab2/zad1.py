@@ -47,10 +47,16 @@ def solve(matrix :np.ndarray):
 #print(np.matrix('1 3 2 ; 1 3 3 ').shape)
 #solve(np.matrix('0 2 0 4 ; 0 0 0 3 ; 3 2 0 2 ; 0 2 3 4'))
 
-dim = 500
+dim = 100
 m = 1000 * np.random.rand(dim, dim)
 print(m)
 print(np.linalg.inv(m) - solve(m))
+
+
+#matrix = [[-1, 2, 1, -1], [1, -3, -2, -1], [3, -1, -1, 4]]
+# m = np.matrix('-1 2 1 ; 1 -3 -2  ; 3 -1 -1')
+
+# print(solve(m))
 
 # #print(np.matrix('1 3 2 ; 1 3 3 ').shape)
 # solve(np.matrix('0 2 0 4 ; 0 0 0 3 ; 3 2 0 2 ; 0 2 3 4'))
