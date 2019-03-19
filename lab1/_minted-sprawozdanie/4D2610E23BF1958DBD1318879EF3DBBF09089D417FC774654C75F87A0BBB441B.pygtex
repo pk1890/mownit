@@ -1,0 +1,53 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+
+\PYG{k}{def} \PYG{n+nf}{doolitleLU}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{):}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])} \PYG{p}{:}
+        \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}macierz musi byc kwadratowa\PYGZdq{}}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{])}
+        \PYG{n+nb}{exit}\PYG{p}{()}
+
+    \PYG{c+c1}{\PYGZsh{} print(matrix)}
+    \PYG{c+c1}{\PYGZsh{} print(np.linalg.inv(matrix))}
+    \PYG{c+c1}{\PYGZsh{} print(\PYGZdq{}====================\PYGZdq{})}
+    \PYG{n}{size} \PYG{o}{=} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{result} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{)}
+
+    \PYG{n}{L} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{)}
+    \PYG{n}{U} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{)}
+
+    \PYG{k}{for} \PYG{n}{col} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{size}\PYG{p}{):}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{col}\PYG{p}{,} \PYG{n}{col}\PYG{p}{))} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{):}
+            \PYG{k}{for} \PYG{n}{row} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{col}\PYG{p}{,} \PYG{n}{size}\PYG{p}{):}
+                \PYG{k}{if}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{row}\PYG{p}{,} \PYG{n}{col}\PYG{p}{))} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{):}
+                    \PYG{n}{matrix}\PYG{p}{[[}\PYG{n}{col}\PYG{p}{,} \PYG{n}{row}\PYG{p}{]]} \PYG{o}{=} \PYG{n}{matrix}\PYG{p}{[[}\PYG{n}{row}\PYG{p}{,} \PYG{n}{col}\PYG{p}{]]}
+                    \PYG{k}{break}
+
+    \PYG{k}{for} \PYG{n}{column} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{size}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{row} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{column}\PYG{p}{,} \PYG{n}{size}\PYG{p}{):}
+            \PYG{n+nb}{sum} \PYG{o}{=} \PYG{l+m+mi}{0}
+            \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{column}\PYG{p}{):}
+                \PYG{n+nb}{sum} \PYG{o}{+=} \PYG{n}{L}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{column}\PYG{p}{,} \PYG{n}{i}\PYG{p}{))} \PYG{o}{*} \PYG{n}{U}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{i}\PYG{p}{,} \PYG{n}{row}\PYG{p}{))}
+            \PYG{n}{U}\PYG{o}{.}\PYG{n}{itemset}\PYG{p}{((}\PYG{n}{column}\PYG{p}{,} \PYG{n}{row}\PYG{p}{),} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{item}\PYG{p}{(}\PYG{n}{column}\PYG{p}{,} \PYG{n}{row}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{sum}\PYG{p}{)}
+        \PYG{k}{for} \PYG{n}{row} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{column}\PYG{p}{,} \PYG{n}{size}\PYG{p}{):}
+            \PYG{k}{if}\PYG{p}{(}\PYG{n}{column} \PYG{o}{==} \PYG{n}{row}\PYG{p}{):}
+                \PYG{n}{L}\PYG{o}{.}\PYG{n}{itemset}\PYG{p}{((}\PYG{n}{column}\PYG{p}{,} \PYG{n}{column}\PYG{p}{),} \PYG{l+m+mi}{1}\PYG{p}{)}
+            \PYG{k}{else}\PYG{p}{:}
+                \PYG{n+nb}{sum} \PYG{o}{=} \PYG{l+m+mi}{0}
+                \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{row}\PYG{p}{):}
+                    \PYG{n+nb}{sum}\PYG{o}{+=} \PYG{n}{L}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{row}\PYG{p}{,} \PYG{n}{i}\PYG{p}{))} \PYG{o}{*} \PYG{n}{U}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{i}\PYG{p}{,} \PYG{n}{column}\PYG{p}{))}
+                \PYG{n}{L}\PYG{o}{.}\PYG{n}{itemset}\PYG{p}{((}\PYG{n}{row}\PYG{p}{,} \PYG{n}{column}\PYG{p}{),} \PYG{p}{((}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{item}\PYG{p}{(}\PYG{n}{row}\PYG{p}{,} \PYG{n}{column}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{sum} \PYG{p}{)}\PYG{o}{/} \PYG{n}{U}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{column}\PYG{p}{,} \PYG{n}{column}\PYG{p}{))))}
+
+    \PYG{n}{np}\PYG{o}{.}\PYG{n}{set\PYGZus{}printoptions}\PYG{p}{(}\PYG{n}{suppress}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{)}
+
+    \PYG{k}{print}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{)}
+    \PYG{n}{np}\PYG{o}{.}\PYG{n}{set\PYGZus{}printoptions}\PYG{p}{(}\PYG{n}{suppress}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{)}
+    \PYG{k}{print}\PYG{p}{(}\PYG{n}{L}\PYG{p}{)}
+    \PYG{k}{print}\PYG{p}{(}\PYG{n}{U}\PYG{p}{)}
+
+
+
+
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{set\PYGZus{}printoptions}\PYG{p}{(}\PYG{n}{suppress}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{)}
+
+\PYG{n}{doolitleLU}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{matrix}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}0 1 2 ; 4 5 6 ; 8 9 10\PYGZsq{}}\PYG{p}{))}
+\end{Verbatim}

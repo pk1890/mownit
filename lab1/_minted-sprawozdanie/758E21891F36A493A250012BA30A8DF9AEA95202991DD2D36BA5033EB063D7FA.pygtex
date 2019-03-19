@@ -1,0 +1,369 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}vector\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}ctime\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}cstdlib\PYGZgt{}}
+
+
+\PYG{k}{using} \PYG{k}{namespace} \PYG{n}{std}\PYG{p}{;}
+
+\PYG{k}{class} \PYG{n+nc}{Matrix}\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{data}\PYG{p}{;}
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{dimX}\PYG{p}{,} \PYG{n}{dimY}\PYG{p}{;}
+
+    \PYG{k+kt}{void} \PYG{n+nf}{setVal}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{val}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{data}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{y}\PYG{p}{]} \PYG{o}{=} \PYG{n}{val}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kt}{float} \PYG{n+nf}{getVal}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{y}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{data}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{y}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{k}{operator} \PYG{o}{*}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{vec}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{dimY} \PYG{o}{!=} \PYG{n}{vec}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())} \PYG{k}{return} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+
+        \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{res}\PYG{p}{;}
+        \PYG{n}{res}\PYG{p}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{dimY}\PYG{p}{);}
+        \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{dimY}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{dimX}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+                \PYG{n}{res}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{data}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{*} \PYG{n}{vec}\PYG{p}{[}\PYG{n}{j}\PYG{p}{];}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{return} \PYG{n}{res}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{};}
+
+
+\PYG{k}{struct} \PYG{n}{Coord}\PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{;}
+    \PYG{k+kt}{float} \PYG{n}{val}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{n}{Coord} \PYG{n+nf}{getCoord}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{val}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{Coord} \PYG{n}{tmp}\PYG{p}{;}
+    \PYG{n}{tmp}\PYG{p}{.}\PYG{n}{x} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
+    \PYG{n}{tmp}\PYG{p}{.}\PYG{n}{y} \PYG{o}{=} \PYG{n}{y}\PYG{p}{;}
+    \PYG{n}{tmp}\PYG{p}{.}\PYG{n}{val} \PYG{o}{=} \PYG{n}{val}\PYG{p}{;}
+    \PYG{k}{return} \PYG{n}{tmp}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{bool} \PYG{k}{operator} \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{k}{const} \PYG{n}{Coord} \PYG{o}{\PYGZam{}}\PYG{n}{c1}\PYG{p}{,} \PYG{k}{const} \PYG{n}{Coord} \PYG{o}{\PYGZam{}}\PYG{n}{c2}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{c1}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZlt{}} \PYG{n}{c2}\PYG{p}{.}\PYG{n}{y}\PYG{p}{)} \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+    \PYG{k}{else} \PYG{n+nf}{return} \PYG{p}{(}\PYG{n}{c1}\PYG{p}{.}\PYG{n}{y} \PYG{o}{==} \PYG{n}{c2}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{c1}\PYG{p}{.}\PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{n}{c2}\PYG{p}{.}\PYG{n}{x}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{bool} \PYG{k}{operator} \PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{k}{const} \PYG{n}{Coord} \PYG{o}{\PYGZam{}}\PYG{n}{c1}\PYG{p}{,} \PYG{k}{const} \PYG{n}{Coord} \PYG{o}{\PYGZam{}}\PYG{n}{c2}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{c1}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZgt{}} \PYG{n}{c2}\PYG{p}{.}\PYG{n}{y}\PYG{p}{)} \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+    \PYG{k}{else} \PYG{n+nf}{return} \PYG{p}{(}\PYG{n}{c1}\PYG{p}{.}\PYG{n}{y} \PYG{o}{==} \PYG{n}{c2}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{c1}\PYG{p}{.}\PYG{n}{x} \PYG{o}{\PYGZgt{}} \PYG{n}{c2}\PYG{p}{.}\PYG{n}{x}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k}{class} \PYG{n+nc}{COOMatrix}\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{dimX}\PYG{p}{,} \PYG{n}{dimY}\PYG{p}{;}
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{Coord}\PYG{o}{\PYGZgt{}} \PYG{n}{data}\PYG{p}{;}
+
+    \PYG{n}{COOMatrix} \PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{y}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{dimX} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
+        \PYG{n}{dimY} \PYG{o}{=} \PYG{n}{y}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n}{COOMatrix} \PYG{p}{()\PYGZob{}}
+        \PYG{n}{dimX} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{n}{dimY} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kt}{bool} \PYG{n}{setVal}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{x}\PYG{p}{,} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{val}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}} \PYG{n}{dimX} \PYG{o}{||} \PYG{n}{y} \PYG{o}{\PYGZgt{}} \PYG{n}{dimY}\PYG{p}{)} \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+
+        \PYG{k}{for} \PYG{p}{(}\PYG{k}{auto} \PYG{n}{i} \PYG{o}{=} \PYG{n}{data}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();} \PYG{n}{i} \PYG{o}{!=} \PYG{n}{data}\PYG{p}{.}\PYG{n}{end}\PYG{p}{();} \PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if}\PYG{p}{(} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{x} \PYG{o}{==} \PYG{n}{x} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{y} \PYG{o}{==} \PYG{n}{y}\PYG{p}{)\PYGZob{}}
+                \PYG{k}{if}\PYG{p}{(}\PYG{n}{val} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+                    \PYG{n}{data}\PYG{p}{.}\PYG{n}{erase}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+                \PYG{p}{\PYGZcb{}}
+                \PYG{k}{else}\PYG{p}{\PYGZob{}}
+                    \PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{val} \PYG{o}{=} \PYG{n}{val}\PYG{p}{;}
+                \PYG{p}{\PYGZcb{}}
+                \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{Coord} \PYG{n}{tmp}\PYG{p}{;}
+        \PYG{n}{tmp}\PYG{p}{.}\PYG{n}{x} \PYG{o}{=} \PYG{n}{x}\PYG{p}{;}
+        \PYG{n}{tmp}\PYG{p}{.}\PYG{n}{y} \PYG{o}{=} \PYG{n}{y}\PYG{p}{;}
+        \PYG{n}{tmp}\PYG{p}{.}\PYG{n}{val} \PYG{o}{=} \PYG{n}{val}\PYG{p}{;}
+        \PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{tmp}\PYG{p}{);}
+        \PYG{n}{sort}\PYG{p}{(}\PYG{n}{data}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(),} \PYG{n}{data}\PYG{p}{.}\PYG{n}{end}\PYG{p}{());}
+    \PYG{p}{\PYGZcb{}}
+
+
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{k}{operator} \PYG{o}{*} \PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}}\PYG{n}{vec}\PYG{p}{)\PYGZob{}}
+
+        \PYG{k}{if}\PYG{p}{(}\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{dimY} \PYG{o}{!=} \PYG{n}{vec}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())} \PYG{k}{return} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+
+        \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{result}\PYG{p}{;}
+        \PYG{n}{result}\PYG{p}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{vec}\PYG{p}{.}\PYG{n}{size}\PYG{p}{());}
+
+
+        \PYG{k}{for}\PYG{p}{(}\PYG{n}{Coord} \PYG{n+nl}{c} \PYG{p}{:} \PYG{n}{data}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{result}\PYG{p}{[}\PYG{n}{c}\PYG{p}{.}\PYG{n}{y}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{c}\PYG{p}{.}\PYG{n}{val} \PYG{o}{*} \PYG{n}{vec}\PYG{p}{[}\PYG{n}{c}\PYG{p}{.}\PYG{n}{x}\PYG{p}{];}
+        \PYG{p}{\PYGZcb{}}
+
+        \PYG{k}{return} \PYG{n}{result}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// void print ()\PYGZob{}}
+    \PYG{c+c1}{//     for(int i = 0; i \PYGZlt{} dimY; i++)\PYGZob{}}
+    \PYG{c+c1}{//         for(int j = 0; j\PYGZlt{} dimX; j++)\PYGZob{}}
+    \PYG{c+c1}{//             if(data)}
+    \PYG{c+c1}{//         \PYGZcb{}}
+    \PYG{c+c1}{//     \PYGZcb{}}
+    \PYG{c+c1}{// \PYGZcb{}}
+
+
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{struct} \PYG{n}{CSRCoord}\PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{float} \PYG{n}{val}\PYG{p}{;}
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{col}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{n}{CSRCoord} \PYG{n+nf}{getCrec}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{col}\PYG{p}{,} \PYG{k+kt}{float} \PYG{n}{val}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{CSRCoord} \PYG{n}{tmp}\PYG{p}{;}
+    \PYG{n}{tmp}\PYG{p}{.}\PYG{n}{col} \PYG{o}{=} \PYG{n}{col}\PYG{p}{;}
+    \PYG{n}{tmp}\PYG{p}{.}\PYG{n}{val} \PYG{o}{=} \PYG{n}{val}\PYG{p}{;}
+
+    \PYG{k}{return} \PYG{n}{tmp}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{class} \PYG{n+nc}{CSRMatrix}\PYG{p}{\PYGZob{}}
+    \PYG{k}{public}\PYG{o}{:}
+
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{dimX}\PYG{p}{,} \PYG{n}{dimY}\PYG{p}{;}
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{CSRCoord}\PYG{o}{\PYGZgt{}} \PYG{n}{colTable}\PYG{p}{;}
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{size\PYGZus{}t}\PYG{o}{\PYGZgt{}} \PYG{n}{offset}\PYG{p}{;}
+
+
+
+
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{k}{operator} \PYG{o}{*} \PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}}\PYG{n}{vec}\PYG{p}{)\PYGZob{}}
+
+        \PYG{k}{if}\PYG{p}{(}\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{dimY} \PYG{o}{!=} \PYG{n}{vec}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())} \PYG{k}{return} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+
+        \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{result}\PYG{p}{;}
+        \PYG{n}{result}\PYG{p}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{vec}\PYG{p}{.}\PYG{n}{size}\PYG{p}{());}
+
+
+        \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{vec}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{j} \PYG{o}{=} \PYG{n}{offset}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{offset}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+                \PYG{n}{result}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{colTable}\PYG{p}{[}\PYG{n}{j}\PYG{p}{].}\PYG{n}{val} \PYG{o}{*} \PYG{n}{vec}\PYG{p}{[}\PYG{n}{colTable}\PYG{p}{[}\PYG{n}{j}\PYG{p}{].}\PYG{n}{col}\PYG{p}{];}
+            \PYG{p}{\PYGZcb{}}
+
+        \PYG{p}{\PYGZcb{}}
+
+
+
+        \PYG{k}{return} \PYG{n}{result}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{class} \PYG{n+nc}{ELLMatrix}\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+    \PYG{k+kt}{int} \PYG{n}{MAX\PYGZus{}ELEM\PYGZus{}ROW}\PYG{p}{;}
+    \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{dimX}\PYG{p}{,} \PYG{n}{dimY}\PYG{p}{;}
+
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{values}\PYG{p}{;}
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{columns}\PYG{p}{;}
+
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{k}{operator} \PYG{o}{*} \PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}}\PYG{n}{vec}\PYG{p}{)\PYGZob{}}
+
+        \PYG{k}{if}\PYG{p}{(}\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{dimY} \PYG{o}{!=} \PYG{n}{vec}\PYG{p}{.}\PYG{n}{size}\PYG{p}{())} \PYG{k}{return} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+
+        \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{result}\PYG{p}{;}
+        \PYG{n}{result}\PYG{p}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{vec}\PYG{p}{.}\PYG{n}{size}\PYG{p}{());}
+
+
+        \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{dimY}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{size\PYGZus{}t} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{MAX\PYGZus{}ELEM\PYGZus{}ROW}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+                \PYG{k}{if}\PYG{p}{(}\PYG{n}{columns}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+                \PYG{n}{result}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{vec}\PYG{p}{[}\PYG{n}{columns}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]]} \PYG{o}{*} \PYG{n}{values}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{];}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+
+        \PYG{k}{return} \PYG{n}{result}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kt}{void} \PYG{n+nf}{print\PYGZus{}vec}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{v}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{v}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{v}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} \PYGZdq{}}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+
+    \PYG{n}{vector} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{v} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{\PYGZcb{};}
+    \PYG{n}{Matrix} \PYG{n}{m}\PYG{p}{;}
+    \PYG{n}{m}\PYG{p}{.}\PYG{n}{dimX} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;}
+    \PYG{n}{m}\PYG{p}{.}\PYG{n}{dimY} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;}
+    \PYG{n}{m}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{});}
+    \PYG{n}{m}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{});}
+    \PYG{n}{m}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{});}
+
+
+    \PYG{n}{print\PYGZus{}vec}\PYG{p}{(}\PYG{n}{m} \PYG{o}{*} \PYG{n}{v}\PYG{p}{);}
+
+    \PYG{n}{COOMatrix} \PYG{n}{mo}\PYG{p}{;}
+    \PYG{n}{mo}\PYG{p}{.}\PYG{n}{dimX} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;}
+    \PYG{n}{mo}\PYG{p}{.}\PYG{n}{dimY} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;}
+    \PYG{n}{mo}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCoord}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{));}
+    \PYG{n}{mo}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCoord}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{));}
+    \PYG{n}{mo}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCoord}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{));}
+    \PYG{n}{mo}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCoord}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{));}
+    \PYG{n}{mo}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCoord}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{));}
+    \PYG{n}{mo}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCoord}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{));}
+
+    \PYG{n}{print\PYGZus{}vec}\PYG{p}{(}\PYG{n}{mo} \PYG{o}{*} \PYG{n}{v}\PYG{p}{);}
+
+    \PYG{n}{CSRMatrix} \PYG{n}{mc}\PYG{p}{;}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{dimX} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{dimY} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{colTable}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCrec}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{));}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{colTable}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCrec}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{));}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{colTable}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCrec}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{));}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{colTable}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCrec}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{));}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{colTable}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCrec}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{));}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{colTable}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCrec}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{));}
+
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{offset}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{offset}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{);}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{offset}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{);}
+    \PYG{n}{mc}\PYG{p}{.}\PYG{n}{offset}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{);}
+    \PYG{n}{print\PYGZus{}vec}\PYG{p}{(}\PYG{n}{mc} \PYG{o}{*} \PYG{n}{v}\PYG{p}{);}
+
+    \PYG{n}{ELLMatrix} \PYG{n}{ml}\PYG{p}{;}
+    \PYG{n}{ml}\PYG{p}{.}\PYG{n}{dimY} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;}
+    \PYG{n}{ml}\PYG{p}{.}\PYG{n}{dimX} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;}
+
+    \PYG{n}{ml}\PYG{p}{.}\PYG{n}{MAX\PYGZus{}ELEM\PYGZus{}ROW}\PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{;}
+    \PYG{n}{ml}\PYG{p}{.}\PYG{n}{columns}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{});}
+    \PYG{n}{ml}\PYG{p}{.}\PYG{n}{columns}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{});}
+    \PYG{n}{ml}\PYG{p}{.}\PYG{n}{columns}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{});}
+
+    \PYG{n}{ml}\PYG{p}{.}\PYG{n}{values}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{});}
+    \PYG{n}{ml}\PYG{p}{.}\PYG{n}{values}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{});}
+    \PYG{n}{ml}\PYG{p}{.}\PYG{n}{values}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{});}
+
+    \PYG{n}{print\PYGZus{}vec}\PYG{p}{(}\PYG{n}{ml} \PYG{o}{*} \PYG{n}{v}\PYG{p}{);}
+
+    \PYG{n}{srand}\PYG{p}{(}\PYG{n}{time}\PYG{p}{(}\PYG{n+nb}{NULL}\PYG{p}{));}
+
+    \PYG{k}{const} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{DIMX} \PYG{o}{=} \PYG{l+m+mi}{6000}\PYG{p}{;}
+    \PYG{k}{const} \PYG{k+kt}{size\PYGZus{}t} \PYG{n}{DIMY} \PYG{o}{=} \PYG{l+m+mi}{6000}\PYG{p}{;}
+    \PYG{k}{const} \PYG{k+kt}{int}  \PYG{n}{ZEROPROB} \PYG{o}{=} \PYG{l+m+mi}{80}\PYG{p}{;}
+
+    \PYG{k}{const} \PYG{k+kt}{float} \PYG{n}{LO} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{const} \PYG{k+kt}{float} \PYG{n}{HI} \PYG{o}{=} \PYG{l+m+mi}{1000}\PYG{p}{;}
+
+    \PYG{n}{Matrix} \PYG{n}{testm}\PYG{p}{;}
+    \PYG{n}{testm}\PYG{p}{.}\PYG{n}{dimX} \PYG{o}{=} \PYG{n}{DIMX}\PYG{p}{;}
+    \PYG{n}{testm}\PYG{p}{.}\PYG{n}{dimY} \PYG{o}{=} \PYG{n}{DIMY}\PYG{p}{;}
+
+    \PYG{n}{testm}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{DIMY}\PYG{p}{);}
+
+    \PYG{k+kt}{float} \PYG{n}{tmpV}\PYG{p}{;}
+
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{DIMX}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{DIMY}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if}\PYG{p}{(}\PYG{n}{rand}\PYG{p}{()} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{100} \PYG{o}{\PYGZlt{}} \PYG{n}{ZEROPROB}\PYG{p}{)\PYGZob{}}
+                \PYG{n}{tmpV} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{k}{else}
+            \PYG{p}{\PYGZob{}}
+                \PYG{n}{tmpV} \PYG{o}{=} \PYG{n}{LO} \PYG{o}{+} \PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{rand}\PYG{p}{())} \PYG{o}{/}\PYG{p}{(} \PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{RAND\PYGZus{}MAX}\PYG{o}{/}\PYG{p}{(}\PYG{n}{HI}\PYG{o}{\PYGZhy{}}\PYG{n}{LO}\PYG{p}{)));}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{n}{testm}\PYG{p}{.}\PYG{n}{data}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{tmpV}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{vec}\PYG{p}{;}
+    \PYG{n}{vec}\PYG{p}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{DIMY}\PYG{p}{);}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}}  \PYG{n}{DIMY}\PYG{p}{;} \PYG{n}{i} \PYG{o}{++}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{vec}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{LO} \PYG{o}{+} \PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{rand}\PYG{p}{())} \PYG{o}{/}\PYG{p}{(} \PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{RAND\PYGZus{}MAX}\PYG{o}{/}\PYG{p}{(}\PYG{n}{HI}\PYG{o}{\PYGZhy{}}\PYG{n}{LO}\PYG{p}{)));}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kt}{clock\PYGZus{}t} \PYG{n}{start}\PYG{p}{,} \PYG{n}{end}\PYG{p}{;}
+
+    \PYG{n}{start} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+    \PYG{k}{auto} \PYG{n}{a} \PYG{o}{=} \PYG{n}{testm} \PYG{o}{*} \PYG{n}{vec}\PYG{p}{;}
+    \PYG{n}{end} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+    \PYG{n}{a} \PYG{o}{=} \PYG{n}{a}\PYG{p}{;}
+
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{Normal version time elapsed: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{n}{CLOCKS\PYGZus{}PER\PYGZus{}SEC} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} ===========}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+
+    \PYG{n}{COOMatrix} \PYG{n}{testo}\PYG{p}{;}
+    \PYG{n}{testo}\PYG{p}{.}\PYG{n}{dimX} \PYG{o}{=} \PYG{n}{DIMX}\PYG{p}{;}
+    \PYG{n}{testo}\PYG{p}{.}\PYG{n}{dimY} \PYG{o}{=} \PYG{n}{DIMY}\PYG{p}{;}
+     \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{DIMX}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{DIMY}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if}\PYG{p}{(}\PYG{n}{rand}\PYG{p}{()} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{100} \PYG{o}{\PYGZlt{}} \PYG{n}{ZEROPROB}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+            \PYG{n}{testo}\PYG{p}{.}\PYG{n}{data}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCoord}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{,} \PYG{n}{LO} \PYG{o}{+} \PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{rand}\PYG{p}{())} \PYG{o}{/}\PYG{p}{(} \PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{RAND\PYGZus{}MAX}\PYG{o}{/}\PYG{p}{(}\PYG{n}{HI}\PYG{o}{\PYGZhy{}}\PYG{n}{LO}\PYG{p}{)))));}
+        \PYG{p}{\PYGZcb{}}
+     \PYG{p}{\PYGZcb{}}
+    \PYG{n}{start} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+    \PYG{k}{auto} \PYG{n}{ao} \PYG{o}{=} \PYG{n}{testo} \PYG{o}{*} \PYG{n}{vec}\PYG{p}{;}
+    \PYG{n}{end} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+    \PYG{n}{ao}\PYG{o}{=} \PYG{n}{ao}\PYG{p}{;}
+
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{Normal version time elapsed: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{n}{CLOCKS\PYGZus{}PER\PYGZus{}SEC} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} ===========}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+
+    \PYG{n}{CSRMatrix} \PYG{n}{testc}\PYG{p}{;}
+    \PYG{n}{testc}\PYG{p}{.}\PYG{n}{dimX} \PYG{o}{=} \PYG{n}{DIMX}\PYG{p}{;}
+    \PYG{n}{testc}\PYG{p}{.}\PYG{n}{dimY} \PYG{o}{=} \PYG{n}{DIMY}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{cntr} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{testc}\PYG{p}{.}\PYG{n}{offset}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{cntr}\PYG{p}{);}
+     \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{DIMY}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{DIMX}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if}\PYG{p}{(}\PYG{n}{rand}\PYG{p}{()} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{100} \PYG{o}{\PYGZlt{}} \PYG{n}{ZEROPROB}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+            \PYG{n}{testc}\PYG{p}{.}\PYG{n}{colTable}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{getCrec}\PYG{p}{(}\PYG{n}{j}\PYG{p}{,} \PYG{n}{LO} \PYG{o}{+} \PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{rand}\PYG{p}{())} \PYG{o}{/}\PYG{p}{(} \PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{RAND\PYGZus{}MAX}\PYG{o}{/}\PYG{p}{(}\PYG{n}{HI}\PYG{o}{\PYGZhy{}}\PYG{n}{LO}\PYG{p}{)))));}
+            \PYG{n}{cntr}\PYG{o}{++}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{testc}\PYG{p}{.}\PYG{n}{offset}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{cntr}\PYG{p}{);}
+     \PYG{p}{\PYGZcb{}}
+
+     \PYG{n}{start} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+    \PYG{k}{auto} \PYG{n}{ac} \PYG{o}{=} \PYG{n}{testc} \PYG{o}{*} \PYG{n}{vec}\PYG{p}{;}
+    \PYG{n}{end} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+    \PYG{n}{ac}\PYG{o}{=} \PYG{n}{ac}\PYG{p}{;}
+
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{Normal version time elapsed: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{n}{CLOCKS\PYGZus{}PER\PYGZus{}SEC} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} ===========}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+
+    \PYG{n}{ELLMatrix} \PYG{n}{teste}\PYG{p}{;}
+    \PYG{n}{teste}\PYG{p}{.}\PYG{n}{dimX} \PYG{o}{=} \PYG{n}{DIMX}\PYG{p}{;}
+    \PYG{n}{teste}\PYG{p}{.}\PYG{n}{dimY} \PYG{o}{=} \PYG{n}{DIMY}\PYG{p}{;}
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{tmpcol}\PYG{p}{;}
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{n}{tmpVal}\PYG{p}{;}
+    \PYG{n}{teste}\PYG{p}{.}\PYG{n}{MAX\PYGZus{}ELEM\PYGZus{}ROW} \PYG{o}{=} \PYG{k}{static\PYGZus{}cast}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{DIMX}\PYG{o}{*}\PYG{n}{ZEROPROB}\PYG{o}{/}\PYG{l+m+mi}{100}\PYG{p}{);}
+     \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{DIMY}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{n}{teste}\PYG{p}{.}\PYG{n}{MAX\PYGZus{}ELEM\PYGZus{}ROW}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{tmpVal}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{LO} \PYG{o}{+} \PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{rand}\PYG{p}{())} \PYG{o}{/}\PYG{p}{(} \PYG{k}{static\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{n}{RAND\PYGZus{}MAX}\PYG{o}{/}\PYG{p}{(}\PYG{n}{HI}\PYG{o}{\PYGZhy{}}\PYG{n}{LO}\PYG{p}{))));}
+            \PYG{n}{tmpcol}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{rand}\PYG{p}{()} \PYG{o}{\PYGZpc{}} \PYG{n}{DIMX}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{teste}\PYG{p}{.}\PYG{n}{columns}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{tmpcol}\PYG{p}{);}
+        \PYG{n}{teste}\PYG{p}{.}\PYG{n}{values}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{tmpVal}\PYG{p}{);}
+        \PYG{n}{tmpcol}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+        \PYG{n}{tmpVal}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+     \PYG{p}{\PYGZcb{}}
+
+    \PYG{n}{start} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+    \PYG{k}{auto} \PYG{n}{ae} \PYG{o}{=} \PYG{n}{teste} \PYG{o}{*} \PYG{n}{vec}\PYG{p}{;}
+    \PYG{n}{end} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+    \PYG{n}{ae}\PYG{o}{=} \PYG{n}{ae}\PYG{p}{;}
+
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{ELL    version time elapsed: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{p}{(}\PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{n}{CLOCKS\PYGZus{}PER\PYGZus{}SEC} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} ===========}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+\end{Verbatim}

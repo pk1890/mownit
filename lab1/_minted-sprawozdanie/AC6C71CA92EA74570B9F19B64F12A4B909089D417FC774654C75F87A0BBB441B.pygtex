@@ -1,0 +1,73 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{math}
+\PYG{k+kn}{import} \PYG{n+nn}{time}
+
+\PYG{k}{def} \PYG{n+nf}{min\PYGZus{}plus}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{,} \PYG{n}{other}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{):}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{other}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{other}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])} \PYG{p}{:}
+       \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}macierz musi byc kwadratowa\PYGZdq{}}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{])}
+       \PYG{n+nb}{exit}\PYG{p}{()}
+
+    \PYG{n}{dim} \PYG{o}{=} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{result} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{((}\PYG{n}{dim}\PYG{p}{,} \PYG{n}{dim}\PYG{p}{))}
+
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{dim}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{dim}\PYG{p}{):}
+            \PYG{n}{minVal} \PYG{o}{=} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{i}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{))} \PYG{o}{+} \PYG{n}{other}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{j}\PYG{p}{))}
+            \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{dim}\PYG{p}{):}
+                \PYG{n}{minVal} \PYG{o}{=} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{minVal}\PYG{p}{,} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{item}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{k}\PYG{p}{)} \PYG{o}{+} \PYG{n}{other}\PYG{o}{.}\PYG{n}{item}\PYG{p}{(}\PYG{n}{k}\PYG{p}{,} \PYG{n}{j}\PYG{p}{))}
+            \PYG{n}{result}\PYG{o}{.}\PYG{n}{itemset}\PYG{p}{((}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{),} \PYG{n}{minVal}\PYG{p}{)}
+
+    \PYG{k}{return} \PYG{n}{result}
+
+\PYG{k}{def} \PYG{n+nf}{shortest\PYGZus{}path}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{):}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])} \PYG{p}{:}
+        \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}macierz musi byc kwadratowa\PYGZdq{}}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{])}
+        \PYG{n+nb}{exit}\PYG{p}{()}
+    \PYG{n}{res} \PYG{o}{=} \PYG{n}{matrix}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{math}\PYG{o}{.}\PYG{n}{ceil}\PYG{p}{(}\PYG{n}{math}\PYG{o}{.}\PYG{n}{log2}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]))):}
+        \PYG{n}{res} \PYG{o}{=} \PYG{n}{min\PYGZus{}plus}\PYG{p}{(}\PYG{n}{res}\PYG{p}{,} \PYG{n}{res}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{res}
+
+\PYG{k}{def} \PYG{n+nf}{floyd\PYGZus{}warshall}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{):}
+    \PYG{n}{dim} \PYG{o}{=} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{dim}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{dim}\PYG{p}{):}
+            \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{dim}\PYG{p}{):}
+                \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{itemset}\PYG{p}{((}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{),} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{matrix}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{))} \PYG{p}{,} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{i}\PYG{p}{,} \PYG{n}{k}\PYG{p}{))}\PYG{o}{+} \PYG{n}{matrix}\PYG{o}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{k}\PYG{p}{,} \PYG{n}{j}\PYG{p}{))))}
+
+    \PYG{k}{return} \PYG{n}{matrix}
+
+\PYG{n}{I} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{infty}
+\PYG{n}{m} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{I}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{I}\PYG{p}{],}
+                \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{],}
+                \PYG{p}{[}\PYG{n}{I}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{],}
+                \PYG{p}{[}\PYG{l+m+mi}{8}\PYG{p}{,} \PYG{n}{I}\PYG{p}{,} \PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]])}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{m}\PYG{p}{)}
+\PYG{n}{mm} \PYG{o}{=} \PYG{n}{min\PYGZus{}plus}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,} \PYG{n}{m}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}print (mm)}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{shortest\PYGZus{}path}\PYG{p}{(}\PYG{n}{m}\PYG{p}{))}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{floyd\PYGZus{}warshall}\PYG{p}{(}\PYG{n}{m}\PYG{p}{))}
+
+\PYG{n}{test} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{l+m+mi}{500}\PYG{p}{,} \PYG{l+m+mi}{500}\PYG{p}{)}
+
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{500}\PYG{p}{):}
+    \PYG{n}{test}\PYG{o}{.}\PYG{n}{itemset}\PYG{p}{((}\PYG{n}{i}\PYG{p}{,} \PYG{n}{i}\PYG{p}{),} \PYG{l+m+mi}{0}\PYG{p}{)}
+
+\PYG{n}{start} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{time}\PYG{p}{()}
+\PYG{n}{floyd\PYGZus{}warshall}\PYG{p}{(}\PYG{n}{test}\PYG{p}{)}
+\PYG{n}{end} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{time}\PYG{p}{()}
+
+
+
+\PYG{n}{libtime} \PYG{o}{=} \PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}
+\PYG{n}{start} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{time}\PYG{p}{()}
+\PYG{n}{shortest\PYGZus{}path}\PYG{p}{(}\PYG{n}{test}\PYG{p}{)}
+\PYG{n}{end} \PYG{o}{=} \PYG{n}{time}\PYG{o}{.}\PYG{n}{time}\PYG{p}{()}
+
+
+\PYG{n}{shorttime} \PYG{o}{=} \PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}
+
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}lib time:\PYGZdq{}}\PYG{p}{,} \PYG{n}{libtime}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}mytime: \PYGZdq{}}\PYG{p}{,} \PYG{n}{shorttime}\PYG{p}{)}
+\end{Verbatim}

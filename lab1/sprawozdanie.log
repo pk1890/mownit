@@ -1,23 +1,24 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.4)  11 MAR 2019 21:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.4)  19 MAR 2019 04:01
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
 **sprawozdanie.tex
 (./sprawozdanie.tex
 LaTeX2e <2018-12-01>
-(/usr/share/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2018/09/03 v1.4i Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 )
 \c@part=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
@@ -78,7 +79,7 @@ LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen103
 \WF@size=\dimen104
-\c@WF@wrappedlines=\count88
+\c@WF@wrappedlines=\count89
 \WF@box=\box27
 \WF@everypar=\toks16
 Package: wrapfig 2003/01/31  v 3.6
@@ -86,7 +87,7 @@ Package: wrapfig 2003/01/31  v 3.6
 (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2019/01/01 v2.4 Span multiple rows of a table
 \multirow@colwidth=\skip43
-\multirow@cntb=\count89
+\multirow@cntb=\count90
 \multirow@dima=\skip44
 \bigstrutjot=\dimen105
 )
@@ -104,7 +105,7 @@ Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
 \ar@cellbox=\box29
 )
 \rotheadsize=\dimen108
-\c@nlinenum=\count90
+\c@nlinenum=\count91
 \TeXr@lab=\toks18
 )
 (/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
@@ -124,9 +125,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count91
-\Gm@cntv=\count92
-\c@Gm@tempcnt=\count93
+\Gm@cnth=\count92
+\Gm@cntv=\count93
+\c@Gm@tempcnt=\count94
 \Gm@bindingoffset=\dimen109
 \Gm@wd@mp=\dimen110
 \Gm@odd@mp=\dimen111
@@ -151,38 +152,38 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 \caption@parindent=\dimen122
 \caption@hangindent=\dimen123
 )
-\c@caption@flags=\count94
-\c@ContinuedFloat=\count95
+\c@caption@flags=\count95
+\c@ContinuedFloat=\count96
 Package caption Info: wrapfig package is loaded.
 )
 (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count96
+\c@float@type=\count97
 \float@exts=\toks21
 \float@box=\box30
 \@float@everytoks=\toks22
 \@floatcapt=\box31
 )
 (/usr/share/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count97
+\lst@mode=\count98
 \lst@gtempboxa=\box32
 \lst@token=\toks23
-\lst@length=\count98
+\lst@length=\count99
 \lst@currlwidth=\dimen124
-\lst@column=\count99
-\lst@pos=\count100
+\lst@column=\count100
+\lst@pos=\count101
 \lst@lostspace=\dimen125
 \lst@width=\dimen126
-\lst@newlines=\count101
-\lst@lineno=\count102
+\lst@newlines=\count102
+\lst@lineno=\count103
 \lst@maxwidth=\dimen127
 
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
 \lst@fmtcurrindent=\dimen128
-\lst@newlinesensured=\count103
-\c@lstnumber=\count104
-\lst@skipnumbers=\count105
+\lst@newlinesensured=\count104
+\c@lstnumber=\count105
+\lst@skipnumbers=\count106
 \lst@framebox=\box33
 )
 (/usr/share/texmf-dist/tex/latex/listings/listings.cfg
@@ -216,7 +217,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip47
 \bibsep=\skip48
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count106
+\c@NAT@ctr=\count107
 )
 (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
@@ -263,13 +264,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count107
+\inf@bad=\count108
 LaTeX Info: Redefining \frac on input line 223.
-\uproot@=\count108
-\leftroot@=\count109
+\uproot@=\count109
+\leftroot@=\count110
 LaTeX Info: Redefining \overline on input line 385.
-\classnum@=\count110
-\DOTSCASE@=\count111
+\classnum@=\count111
+\DOTSCASE@=\count112
 LaTeX Info: Redefining \ldots on input line 482.
 LaTeX Info: Redefining \dots on input line 485.
 LaTeX Info: Redefining \cdots on input line 606.
@@ -278,15 +279,15 @@ LaTeX Info: Redefining \cdots on input line 606.
 \big@size=\dimen133
 LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
-\macc@depth=\count112
-\c@MaxMatrixCols=\count113
+\macc@depth=\count113
+\c@MaxMatrixCols=\count114
 \dotsspace@=\muskip10
-\c@parentequation=\count114
-\dspbrk@lvl=\count115
+\c@parentequation=\count115
+\dspbrk@lvl=\count116
 \tag@help=\toks26
-\row@=\count116
-\column@=\count117
-\maxfields@=\count118
+\row@=\count117
+\column@=\count118
+\maxfields@=\count119
 \andhelp@=\toks27
 \eqnshift@=\dimen134
 \alignsep@=\dimen135
@@ -308,11 +309,11 @@ Package: pygmentex 2014/08/12 v0.8 A Pygmentex layer for LaTeX
 Package: fancyvrb 2019/01/15
 
 Style option: `fancyvrb' v3.2a <2019/01/15> (tvz)
-\FV@CodeLineNo=\count119
+\FV@CodeLineNo=\count120
 \FV@InFile=\read1
 \FV@TabBox=\box36
-\c@FancyVerbLine=\count120
-\FV@StepNumber=\count121
+\c@FancyVerbLine=\count121
+\FV@StepNumber=\count122
 \FV@OutFile=\write3
 )
 (/usr/share/texmf-dist/tex/latex/base/ifthen.sty
@@ -363,17 +364,17 @@ Package: expl3 2019-02-15 L3 programming layer (loader)
 
 (/usr/share/texmf-dist/tex/latex/l3kernel/expl3-code.tex
 Package: expl3 2019-02-15 L3 programming layer (code)
-\c_max_int=\count122
-\l_tmpa_int=\count123
-\l_tmpb_int=\count124
-\g_tmpa_int=\count125
-\g_tmpb_int=\count126
-\g__kernel_prg_map_int=\count127
-\c_log_iow=\count128
-\l_iow_line_count_int=\count129
-\l__iow_line_target_int=\count130
-\l__iow_one_indent_int=\count131
-\l__iow_indent_int=\count132
+\c_max_int=\count123
+\l_tmpa_int=\count124
+\l_tmpb_int=\count125
+\g_tmpa_int=\count126
+\g_tmpb_int=\count127
+\g__kernel_prg_map_int=\count128
+\c_log_iow=\count129
+\l_iow_line_count_int=\count130
+\l__iow_line_target_int=\count131
+\l__iow_one_indent_int=\count132
+\l__iow_indent_int=\count133
 \c_zero_dim=\dimen140
 \c_max_dim=\dimen141
 \l_tmpa_dim=\dimen142
@@ -392,78 +393,78 @@ Package: expl3 2019-02-15 L3 programming layer (code)
 \l_tmpb_muskip=\muskip14
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
-\l_keys_choice_int=\count133
-\l__intarray_loop_int=\count134
+\l_keys_choice_int=\count134
+\l__intarray_loop_int=\count135
 \c__intarray_sp_dim=\dimen146
-\g__intarray_font_int=\count135
-\c__fp_leading_shift_int=\count136
-\c__fp_middle_shift_int=\count137
-\c__fp_trailing_shift_int=\count138
-\c__fp_big_leading_shift_int=\count139
-\c__fp_big_middle_shift_int=\count140
-\c__fp_big_trailing_shift_int=\count141
-\c__fp_Bigg_leading_shift_int=\count142
-\c__fp_Bigg_middle_shift_int=\count143
-\c__fp_Bigg_trailing_shift_int=\count144
-\c__kernel_randint_max_int=\count145
-\g__fp_array_int=\count146
-\l__fp_array_loop_int=\count147
-\l__sort_length_int=\count148
-\l__sort_min_int=\count149
-\l__sort_top_int=\count150
-\l__sort_max_int=\count151
-\l__sort_true_max_int=\count152
-\l__sort_block_int=\count153
-\l__sort_begin_int=\count154
-\l__sort_end_int=\count155
-\l__sort_A_int=\count156
-\l__sort_B_int=\count157
-\l__sort_C_int=\count158
-\l__tl_analysis_normal_int=\count159
-\l__tl_analysis_index_int=\count160
-\l__tl_analysis_nesting_int=\count161
-\l__tl_analysis_type_int=\count162
-\l__regex_internal_a_int=\count163
-\l__regex_internal_b_int=\count164
-\l__regex_internal_c_int=\count165
-\l__regex_balance_int=\count166
-\l__regex_group_level_int=\count167
-\l__regex_mode_int=\count168
-\c__regex_cs_in_class_mode_int=\count169
-\c__regex_cs_mode_int=\count170
-\l__regex_catcodes_int=\count171
-\l__regex_default_catcodes_int=\count172
-\c__regex_catcode_D_int=\count173
-\c__regex_catcode_S_int=\count174
-\c__regex_catcode_L_int=\count175
-\c__regex_catcode_O_int=\count176
-\c__regex_catcode_A_int=\count177
-\c__regex_all_catcodes_int=\count178
-\l__regex_show_lines_int=\count179
-\l__regex_min_state_int=\count180
-\l__regex_max_state_int=\count181
-\l__regex_left_state_int=\count182
-\l__regex_right_state_int=\count183
-\l__regex_capturing_group_int=\count184
-\l__regex_min_pos_int=\count185
-\l__regex_max_pos_int=\count186
-\l__regex_curr_pos_int=\count187
-\l__regex_start_pos_int=\count188
-\l__regex_success_pos_int=\count189
-\l__regex_curr_char_int=\count190
-\l__regex_curr_catcode_int=\count191
-\l__regex_last_char_int=\count192
-\l__regex_case_changed_char_int=\count193
-\l__regex_curr_state_int=\count194
-\l__regex_step_int=\count195
-\l__regex_min_active_int=\count196
-\l__regex_max_active_int=\count197
-\l__regex_replacement_csnames_int=\count198
-\l__regex_match_count_int=\count199
-\l__regex_min_submatch_int=\count266
-\l__regex_submatch_int=\count267
-\l__regex_zeroth_submatch_int=\count268
-\g__regex_trace_regex_int=\count269
+\g__intarray_font_int=\count136
+\c__fp_leading_shift_int=\count137
+\c__fp_middle_shift_int=\count138
+\c__fp_trailing_shift_int=\count139
+\c__fp_big_leading_shift_int=\count140
+\c__fp_big_middle_shift_int=\count141
+\c__fp_big_trailing_shift_int=\count142
+\c__fp_Bigg_leading_shift_int=\count143
+\c__fp_Bigg_middle_shift_int=\count144
+\c__fp_Bigg_trailing_shift_int=\count145
+\c__kernel_randint_max_int=\count146
+\g__fp_array_int=\count147
+\l__fp_array_loop_int=\count148
+\l__sort_length_int=\count149
+\l__sort_min_int=\count150
+\l__sort_top_int=\count151
+\l__sort_max_int=\count152
+\l__sort_true_max_int=\count153
+\l__sort_block_int=\count154
+\l__sort_begin_int=\count155
+\l__sort_end_int=\count156
+\l__sort_A_int=\count157
+\l__sort_B_int=\count158
+\l__sort_C_int=\count159
+\l__tl_analysis_normal_int=\count160
+\l__tl_analysis_index_int=\count161
+\l__tl_analysis_nesting_int=\count162
+\l__tl_analysis_type_int=\count163
+\l__regex_internal_a_int=\count164
+\l__regex_internal_b_int=\count165
+\l__regex_internal_c_int=\count166
+\l__regex_balance_int=\count167
+\l__regex_group_level_int=\count168
+\l__regex_mode_int=\count169
+\c__regex_cs_in_class_mode_int=\count170
+\c__regex_cs_mode_int=\count171
+\l__regex_catcodes_int=\count172
+\l__regex_default_catcodes_int=\count173
+\c__regex_catcode_D_int=\count174
+\c__regex_catcode_S_int=\count175
+\c__regex_catcode_L_int=\count176
+\c__regex_catcode_O_int=\count177
+\c__regex_catcode_A_int=\count178
+\c__regex_all_catcodes_int=\count179
+\l__regex_show_lines_int=\count180
+\l__regex_min_state_int=\count181
+\l__regex_max_state_int=\count182
+\l__regex_left_state_int=\count183
+\l__regex_right_state_int=\count184
+\l__regex_capturing_group_int=\count185
+\l__regex_min_pos_int=\count186
+\l__regex_max_pos_int=\count187
+\l__regex_curr_pos_int=\count188
+\l__regex_start_pos_int=\count189
+\l__regex_success_pos_int=\count190
+\l__regex_curr_char_int=\count191
+\l__regex_curr_catcode_int=\count192
+\l__regex_last_char_int=\count193
+\l__regex_case_changed_char_int=\count194
+\l__regex_curr_state_int=\count195
+\l__regex_step_int=\count196
+\l__regex_min_active_int=\count197
+\l__regex_max_active_int=\count198
+\l__regex_replacement_csnames_int=\count199
+\l__regex_match_count_int=\count266
+\l__regex_min_submatch_int=\count267
+\l__regex_submatch_int=\count268
+\l__regex_zeroth_submatch_int=\count269
+\g__regex_trace_regex_int=\count270
 \c_empty_box=\box37
 \l_tmpa_box=\box38
 \l_tmpb_box=\box39
@@ -508,23 +509,23 @@ Package: expl3 2019-02-15 L3 programming layer (code)
 \l__coffin_top_corner_dim=\dimen169
 \l__coffin_scaled_total_height_dim=\dimen170
 \l__coffin_scaled_width_dim=\dimen171
-\l__seq_internal_a_int=\count270
-\l__seq_internal_b_int=\count271
+\l__seq_internal_a_int=\count271
+\l__seq_internal_b_int=\count272
 )
 (/usr/share/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 File: l3pdfmode.def 2019-02-15 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count272
+\l__driver_color_stack_int=\count273
 ))
 Package: xparse 2018-10-17 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count273
-\g__xparse_grabber_int=\count274
-\l__xparse_m_args_int=\count275
-\l__xparse_mandatory_args_int=\count276
-\l__xparse_v_nesting_int=\count277
+\l__xparse_current_arg_int=\count274
+\g__xparse_grabber_int=\count275
+\l__xparse_m_args_int=\count276
+\l__xparse_mandatory_args_int=\count277
+\l__xparse_v_nesting_int=\count278
 )
 (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count278
+\etb@tempcnta=\count279
 )
 (/usr/share/texmf-dist/tex/latex/oberdiek/zref-abspage.sty
 Package: zref-abspage 2018/11/21 v2.27 Module abspage for zref (HO)
@@ -553,14 +554,14 @@ Package zref Info: New property: page on input line 761.
 (/usr/share/texmf-dist/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 )
-\c@abspage=\count279
+\c@abspage=\count280
 Package zref Info: New property: abspage on input line 62.
 )
 (/usr/share/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
 \mdf@templength=\skip58
-\c@mdf@globalstyle@cnt=\count280
+\c@mdf@globalstyle@cnt=\count281
 \mdf@skipabove@length=\skip59
 \mdf@skipbelow@length=\skip60
 \mdf@leftmargin@length=\skip61
@@ -638,14 +639,14 @@ Package: pgfsys 2019/02/02 v3.1.1 (3.1.1)
 \pgf@yc=\dimen181
 \w@pgf@writea=\write4
 \r@pgf@reada=\read3
-\c@pgf@counta=\count281
-\c@pgf@countb=\count282
-\c@pgf@countc=\count283
-\c@pgf@countd=\count284
+\c@pgf@counta=\count282
+\c@pgf@countb=\count283
+\c@pgf@countc=\count284
+\c@pgf@countd=\count285
 \t@pgf@toka=\toks34
 \t@pgf@tokb=\toks35
 \t@pgf@tokc=\toks36
-\pgf@sys@id@count=\count285
+\pgf@sys@id@count=\count286
 
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2019/02/02 v3.1.1 (3.1.1)
@@ -660,8 +661,8 @@ File: pgfsys-common-pdf.def 2019/02/02 v3.1.1 (3.1.1)
 )))
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgfsyssoftpath@smallbuffer@items=\count286
-\pgfsyssoftpath@bigbuffer@items=\count287
+\pgfsyssoftpath@smallbuffer@items=\count287
+\pgfsyssoftpath@bigbuffer@items=\count288
 )
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2019/02/02 v3.1.1 (3.1.1)
@@ -674,7 +675,7 @@ Package: pgfcore 2019/02/02 v3.1.1 (3.1.1)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen182
-\pgfmath@count=\count288
+\pgfmath@count=\count289
 \pgfmath@box=\box56
 \pgfmath@toks=\toks37
 \pgfmath@stack@operand=\toks38
@@ -691,7 +692,7 @@ x) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics
 .code.tex))) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count289
+\c@pgfmathroundto@lastzeros=\count290
 )) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2019/02/02 v3.1.1 (3.1.1)
 \pgf@picminx=\dimen183
@@ -723,7 +724,7 @@ File: pgfcorescopes.code.tex 2019/02/02 v3.1.1 (3.1.1)
 \pgfpic=\box57
 \pgf@hbox=\box58
 \pgf@layerbox@main=\box59
-\pgf@picture@serial@count=\count290
+\pgf@picture@serial@count=\count291
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2019/02/02 v3.1.1 (3.1.1)
@@ -751,7 +752,7 @@ File: pgfcorearrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2019/02/02 v3.1.1 (3.1.1)
 \pgf@max=\dimen262
-\pgf@sys@shading@range@num=\count291
+\pgf@sys@shading@range@num=\count292
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2019/02/02 v3.1.1 (3.1.1)
@@ -804,7 +805,7 @@ Package: tikz 2019/02/02 v3.1.1 (3.1.1)
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
 x
 File: pgflibraryplothandlers.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgf@plot@mark@count=\count292
+\pgf@plot@mark@count=\count293
 \pgfplotmarksize=\dimen267
 )
 \tikz@lastx=\dimen268
@@ -817,17 +818,17 @@ File: pgflibraryplothandlers.code.tex 2019/02/02 v3.1.1 (3.1.1)
 \tikz@figbox@bg=\box63
 \tikz@tempbox=\box64
 \tikz@tempbox@bg=\box65
-\tikztreelevel=\count293
-\tikznumberofchildren=\count294
-\tikznumberofcurrentchild=\count295
-\tikz@fig@count=\count296
+\tikztreelevel=\count294
+\tikznumberofchildren=\count295
+\tikznumberofcurrentchild=\count296
+\tikz@fig@count=\count297
  (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\pgfmatrixcurrentrow=\count297
-\pgfmatrixcurrentcolumn=\count298
-\pgf@matrix@numberofcolumns=\count299
+\pgfmatrixcurrentrow=\count298
+\pgfmatrixcurrentcolumn=\count299
+\pgf@matrix@numberofcolumns=\count300
 )
-\tikz@expandcount=\count300
+\tikz@expandcount=\count301
 
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 topaths.code.tex
@@ -867,26 +868,26 @@ File: md-frame-1.mdf 2013/07/01\ 1.9b: md-frame-1
 \mdf@horizontalspaceofbox=\skip122
 \mdfsubtitleheight=\skip123
 \mdfsubsubtitleheight=\skip124
-\c@mdfcountframes=\count301
+\c@mdfcountframes=\count302
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count302
-\c@mdf@env@i=\count303
-\c@mdf@env@ii=\count304
-\c@mdf@zref@counter=\count305
+\mdf@envdepth=\count303
+\c@mdf@env@i=\count304
+\c@mdf@env@ii=\count305
+\c@mdf@zref@counter=\count306
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
 (/usr/share/texmf-dist/tex/latex/caption/newfloat.sty
 Package: newfloat 2018/03/04 v1.1a Defining new floating environments (AR)
 )
 Package newfloat Info: New float `code' with options `' on input line 17.
-\c@code=\count306
+\c@code=\count307
 Package newfloat Info: float type `code'=4 on input line 17.
 \pygmented@outfile=\write5
-\pygmented@counter=\count307
+\pygmented@counter=\count308
 \pygmented@leftmargin=\dimen274
 \pygmented@linenosep=\dimen275
 )
@@ -1065,56 +1066,56 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 ))
 (/usr/share/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count308
+\linenopenalty=\count309
 \output=\toks42
-\linenoprevgraf=\count309
+\linenoprevgraf=\count310
 \linenumbersep=\dimen276
 \linenumberwidth=\dimen277
-\c@linenumber=\count310
-\c@pagewiselinenumber=\count311
-\c@LN@truepage=\count312
-\c@internallinenumber=\count313
-\c@internallinenumbers=\count314
+\c@linenumber=\count311
+\c@pagewiselinenumber=\count312
+\c@LN@truepage=\count313
+\c@internallinenumber=\count314
+\c@internallinenumbers=\count315
 \quotelinenumbersep=\dimen278
 \bframerule=\dimen279
 \bframesep=\dimen280
 \bframebox=\box71
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count315
-\c@FV@TrueTabCounter=\count316
+\c@FV@TrueTabGroupLevel=\count316
+\c@FV@TrueTabCounter=\count317
 \FV@TabBox@Group=\box72
 \FV@TmpLength=\skip125
-\c@FV@HighlightLinesStart=\count317
-\c@FV@HighlightLinesStop=\count318
-\FV@LoopCount=\count319
+\c@FV@HighlightLinesStart=\count318
+\c@FV@HighlightLinesStop=\count319
+\FV@LoopCount=\count320
 \FV@NCharsBox=\box73
 \FV@BreakIndent=\dimen281
-\FV@BreakIndentNChars=\count320
+\FV@BreakIndentNChars=\count321
 \FV@BreakSymbolSepLeft=\dimen282
-\FV@BreakSymbolSepLeftNChars=\count321
+\FV@BreakSymbolSepLeftNChars=\count322
 \FV@BreakSymbolSepRight=\dimen283
-\FV@BreakSymbolSepRightNChars=\count322
+\FV@BreakSymbolSepRightNChars=\count323
 \FV@BreakSymbolIndentLeft=\dimen284
-\FV@BreakSymbolIndentLeftNChars=\count323
+\FV@BreakSymbolIndentLeftNChars=\count324
 \FV@BreakSymbolIndentRight=\dimen285
-\FV@BreakSymbolIndentRightNChars=\count324
-\c@FancyVerbLineBreakLast=\count325
+\FV@BreakSymbolIndentRightNChars=\count325
+\c@FancyVerbLineBreakLast=\count326
 \FV@LineBox=\box74
 \FV@LineIndentBox=\box75
 \FV@LineWidth=\dimen286
 )
 (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count326
-\calc@Bcount=\count327
+\calc@Acount=\count327
+\calc@Bcount=\count328
 \calc@Adimen=\dimen287
 \calc@Bdimen=\dimen288
 \calc@Askip=\skip126
 \calc@Bskip=\skip127
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count328
+\calc@Ccount=\count329
 \calc@Cskip=\skip128
 )
 (/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
@@ -1134,8 +1135,8 @@ runsystem(rm -- "sprawozdanie.w18")...executed.
 
 ) (/usr/share/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/share/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count329
-\decimalpart=\count330
+\integerpart=\count330
+\decimalpart=\count331
 )
 Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 )
@@ -1150,10 +1151,10 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \minted@appexistsfile=\read4
 \minted@bgbox=\box76
 \minted@code=\write6
-\c@minted@FancyVerbLineTemp=\count331
-\c@minted@pygmentizecounter=\count332
+\c@minted@FancyVerbLineTemp=\count332
+\c@minted@pygmentizecounter=\count333
 \@float@every@listing=\toks43
-\c@listing=\count333
+\c@listing=\count334
 )
 runsystem(mkdir -p _minted-sprawozdanie)...executed.
 
@@ -1260,19 +1261,19 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count334
+\c@lstlisting=\count335
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count335
+\scratchcounter=\count336
 \scratchdimen=\dimen293
 \scratchbox=\box77
-\nofMPsegments=\count336
-\nofMParguments=\count337
+\nofMPsegments=\count337
+\nofMParguments=\count338
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count338
+\MPscratchCnt=\count339
 \MPscratchDim=\dimen294
-\MPnumerator=\count339
-\makeMPintoPDFobject=\count340
+\MPnumerator=\count340
+\makeMPintoPDFobject=\count341
 \everyMPtoPDFconversion=\toks45
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1326,11 +1327,15 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 67.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+) [1
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Rozdzia\PlPrIeC {\l } 1.
+(./report.tex
 \openout3 = `sprawozdanie.pyg'.
 
-
-(./_minted-sprawozdanie/default-pyg-prefix.pygstyle)
+ (./_minted-sprawozdanie/default-pyg-prefix.pygstyle)
 (./_minted-sprawozdanie/default.pygstyle)
 (./_minted-sprawozdanie/5415819C5800451EE0FC63DC3BDCCD54AEA95202991DD2D36BA5033
 EB063D7FA.pygtex
@@ -1348,21 +1353,20 @@ LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 24.
 File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )) [1
 
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+] [2]
 \openout3 = `sprawozdanie.pyg'.
 
 
 (./_minted-sprawozdanie/427A93381B33CF5C6F878474C3D08A6F09089D417FC774654C75F87
-A0BBB441B.pygtex) [2
+A0BBB441B.pygtex) [3
 
 ]
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <10> on input line 140.
+(Font)              <10> on input line 72.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <7> on input line 140.
+(Font)              <7> on input line 72.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <5> on input line 140.
+(Font)              <5> on input line 72.
 \openout3 = `sprawozdanie.pyg'.
 
 
@@ -1372,7 +1376,7 @@ A0BBB441B.pygtex)
 
 
 (./_minted-sprawozdanie/42E31915E48F9FD32E0FDD6F54C7697109089D417FC774654C75F87
-A0BBB441B.pygtex) [3
+A0BBB441B.pygtex) [4
 
 ]
 \openout3 = `sprawozdanie.pyg'.
@@ -1384,57 +1388,204 @@ A0BBB441B.pygtex)
 
 
 (./_minted-sprawozdanie/3C773F061CBF7EA24B13E8192C16C0D2AEA95202991DD2D36BA5033
-EB063D7FA.pygtex [4]) [5]
-<img/plot_1.png, id=39, 462.528pt x 346.896pt>
+EB063D7FA.pygtex [5]) [6]
+<img/plot_1.png, id=46, 462.528pt x 346.896pt>
 File: img/plot_1.png Graphic file (type png)
 <use img/plot_1.png>
-Package pdftex.def Info: img/plot_1.png  used on input line 290.
+Package pdftex.def Info: img/plot_1.png  used on input line 222.
 (pdftex.def)             Requested size: 370.2541pt x 277.70242pt.
 \openout3 = `sprawozdanie.pyg'.
 
 
 (./_minted-sprawozdanie/14AA21D695B8B21AECD7AD2378796A2709089D417FC774654C75F87
-A0BBB441B.pygtex [6
+A0BBB441B.pygtex [7
 
  <./img/plot_1.png>])
 \openout3 = `sprawozdanie.pyg'.
 
 
 (./_minted-sprawozdanie/1BF13A94641450EE0A400003923D047AAEA95202991DD2D36BA5033
-EB063D7FA.pygtex) [7]
+EB063D7FA.pygtex) [8]
 \openout3 = `sprawozdanie.pyg'.
 
 
 (./_minted-sprawozdanie/2133E8A799B8E1638F061EC90C6E98D6AEA95202991DD2D36BA5033
-EB063D7FA.pygtex [8
+EB063D7FA.pygtex [9
 
-]) [9]
+]) [10]
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <14.4> on input line 463.
+(Font)              <14.4> on input line 395.
 \openout3 = `sprawozdanie.pyg'.
 
 
 (./_minted-sprawozdanie/8C4533966E7AC496DE0E2C092FF7EBA0AEA95202991DD2D36BA5033
-EB063D7FA.pygtex [10
+EB063D7FA.pygtex [11
 
-] [11]) (./test0.3.txt [12]) (./test3.txt [13]) [14]
+] [12]) (./test0.3.txt [13]) (./test3.txt [14])) [15]
+Rozdzia\PlPrIeC {\l } 2.
+(../lab2/report.tex
+\openout3 = `sprawozdanie.pyg'.
+
+
+! FancyVerb Error:
+  Extraneous input `{Python}\end{}' between \end{minted} and line end
+.
+\FV@Error ... {FancyVerb Error:
+\space \space #1
+}
+                                                  
+l.84 \end{minted}{Python}
+                         
+This input will be discarded. Type <return> to continue.
+
+
+(./_minted-sprawozdanie/69D4981F2FEBDE9613E1BD4C772EBF8509089D417FC774654C75F87
+A0BBB441B.pygtex [16
+
+]) [17]
+\openout3 = `sprawozdanie.pyg'.
+
+
+! FancyVerb Error:
+  Extraneous input `{Python}\end{}' between \end{minted} and line end
+.
+\FV@Error ... {FancyVerb Error:
+\space \space #1
+}
+                                                  
+l.159 \end{minted}{Python}
+                          
+This input will be discarded. Type <return> to continue.
+
+
+(./_minted-sprawozdanie/4D2610E23BF1958DBD1318879EF3DBBF09089D417FC774654C75F87
+A0BBB441B.pygtex [18])
+Overfull \hbox (201.19052pt too wide) in paragraph at lines 161--161
+\OT4/cmr/bx/n/14.4 wy-daj-no-±cio-wym do wer-sji z p¦-tla-mi mno-»¡-cy-mi. http
+://phdopen.mimuw.edu.pl/lato07/paths1.pdf 
+ []
+
+\openout3 = `sprawozdanie.pyg'.
+
+! FancyVerb Error:
+  Extraneous input `{Python}\end{}' between \end{minted} and line end
+.
+\FV@Error ... {FancyVerb Error:
+\space \space #1
+}
+                                                  
+l.235 \end{minted}{Python}
+                          
+This input will be discarded. Type <return> to continue.
+
+
+(./_minted-sprawozdanie/AC6C71CA92EA74570B9F19B64F12A4B909089D417FC774654C75F87
+A0BBB441B.pygtex [19])
+! Missing $ inserted.
+<inserted text> 
+                $
+l.239 }
+       
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+LaTeX Warning: Command \k invalid in math mode on input line 239.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 239.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 239.
+
+
+LaTeX Warning: Command \. invalid in math mode on input line 239.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 239.
+
+
+LaTeX Warning: Command \. invalid in math mode on input line 239.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 239.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 239.
+
+
+LaTeX Warning: Command \. invalid in math mode on input line 239.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.239 }
+       
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no ¦ in font plmi12!
+Missing character: There is no ó in font plmi12!
+Missing character: There is no ª in font plmi12!
+Missing character: There is no » in font plmi12!
+Missing character: There is no ¢ in font plmi12!
+Missing character: There is no » in font plmi12!
+Missing character: There is no ¢ in font plmi12!
+Missing character: There is no ª in font plmi12!
+Missing character: There is no » in font plmi12!
+
+Overfull \hbox (174.4289pt too wide) in paragraph at lines 239--239
+\OT4/cmr/bx/n/14.4 za-pre-zen-to-wa-nych pod wska-za-nym lin-kiem: https://docs
+.nvidia.com/cuda/cusparse/index.html
+ []
+
+
+Overfull \hbox (48.43695pt too wide) in paragraph at lines 239--239
+\OT4/cmr/bx/n/14.4 do-wej me-to-dy mno-»e-nia ma-cie-rzy o zªo-»o-no-±ci N$[]\O
+ML/plm/m/it/14.4 :JzykC=C \OT4/cmr/m/n/14.4 + +\OML/plm/m/it/14.4 :Uszczegowien
+ie \OT4/cmr/m/n/14.4 :
+ []
+
+
+Overfull \hbox (68.58pt too wide) in paragraph at lines 239--239
+\OML/plm/m/it/14.4 monawykorzystahttps \OT4/cmr/m/n/14.4 : \OML/plm/m/it/14.4 =
+=www:it:uu:se=education=phd[]tudies=phd[]ourses=pasc=lecture \OMS/plsy/m/n/14.4
+ ^^@
+ []
+
+\openout3 = `sprawozdanie.pyg'.
+
+! FancyVerb Error:
+  Extraneous input `{C++}\end{}' between \end{minted} and line end
+.
+\FV@Error ... {FancyVerb Error:
+\space \space #1
+}
+                                                  
+l.612 \end{minted}{C++}
+                       
+This input will be discarded. Type <return> to continue.
+
+
+(./_minted-sprawozdanie/758E21891F36A493A250012BA30A8DF9AEA95202991DD2D36BA5033
+EB063D7FA.pygtex [20] [21] [22] [23] [24] [25] [26] [27])) [28]
 (./sprawozdanie.aux)
 runsystem(rm sprawozdanie.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 30867 strings out of 492616
- 587617 string characters out of 6135178
- 905821 words of memory out of 5000000
- 34272 multiletter control sequences out of 15000+600000
- 548380 words of font info for 72 fonts, out of 8000000 for 9000
+ 30921 strings out of 492616
+ 589448 string characters out of 6135178
+ 906426 words of memory out of 5000000
+ 34308 multiletter control sequences out of 15000+600000
+ 550225 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,7n,67p,835b,1659s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/
-texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texmf-dist/fonts/enc/dvips/p
-l/plrm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/pl/plit.enc}{/usr/share/texmf
--dist/fonts/enc/dvips/pl/plme.enc}{/usr/share/texmf-dist/fonts/enc/dvips/pl/plm
-s.enc}{/usr/share/texmf-dist/fonts/enc/dvips/pl/pltt.enc}{/usr/share/texmf-dist
+ 73i,7n,67p,867b,1669s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texmf-dist/fon
+ts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/p
+l/plmi.enc}{/usr/share/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texmf
+-dist/fonts/enc/dvips/pl/plit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/pl/plm
+e.enc}{/usr/share/texmf-dist/fonts/enc/dvips/pl/pltt.enc}{/usr/share/texmf-dist
 /fonts/enc/dvips/pl/plitt.enc}</usr/share/texmf-dist/fonts/type1/public/pl/plbx
 10.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plbx12.pfb></usr/share/texm
 f-dist/fonts/type1/public/pl/plex10.pfb></usr/share/texmf-dist/fonts/type1/publ
@@ -1445,15 +1596,17 @@ fb></usr/share/texmf-dist/fonts/type1/public/pl/plr10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/pl/plr12.pfb></usr/share/texmf-dist/fonts/type1/public/pl/
 plr17.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plr7.pfb></usr/share/tex
 mf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/pl/plsy7.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plti10.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/pl/pltt10.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/pl/pltt9.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit
-1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/
-share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on sprawozdanie.pdf (14 pages, 168590 bytes).
+c/pl/plsy10.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plsy7.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/pl/plti10.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/pl/pltt10.pfb></usr/share/texmf-dist/fonts/type1/public/pl/pltt9.pfb
+></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/te
+xmf-dist/fonts/type1/public/cm-super/sfit1000.pfb></usr/share/texmf-dist/fonts/
+type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm
+-super/sftt1000.pfb>
+Output written on sprawozdanie.pdf (29 pages, 198770 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
+ 200 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

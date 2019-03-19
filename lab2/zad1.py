@@ -1,8 +1,13 @@
 import numpy as np 
 
+import time
 
-def solve(matrix :np.ndarray):
+def solve(matrix :np.ndarray, vector: np.ndarray):
     if(matrix.shape[0] != matrix.shape[1]) :
+       print("macierz musi byc kwadratowa", matrix[1][0])
+       exit()
+
+    if(vector.shape[1] != 1 and vector.shape[0] != matrix.shape[0]) :
        print("macierz musi byc kwadratowa", matrix[1][0])
        exit()
 
@@ -39,18 +44,37 @@ def solve(matrix :np.ndarray):
     # print( matrix)
     # print(result)
 
-
-    return result
+    
+    return np.matmul(result, vector)
         # for i in range(0, size):
         # for row in range(0, size):
 
 #print(np.matrix('1 3 2 ; 1 3 3 ').shape)
 #solve(np.matrix('0 2 0 4 ; 0 0 0 3 ; 3 2 0 2 ; 0 2 3 4'))
 
-dim = 100
+dim = 600
 m = 1000 * np.random.rand(dim, dim)
+v = 1000 * np.random.rand(dim, 1)
 print(m)
-print(np.linalg.inv(m) - solve(m))
+
+start = time.time()
+reslib = np.linalg.solve(m, v)
+end = time.time()
+
+libtime = end-start
+
+start = time.time()
+myres = solve(m, v)
+end = time.time()
+
+mytime = end-start
+
+
+print(reslib - myres)
+
+print("lib time:", libtime, "mytime: ", mytime)
+
+
 
 
 #matrix = [[-1, 2, 1, -1], [1, -3, -2, -1], [3, -1, -1, 4]]
