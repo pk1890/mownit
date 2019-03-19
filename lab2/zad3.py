@@ -48,9 +48,9 @@ mm = min_plus(m, m)
 print(shortest_path(m))
 print(floyd_warshall(m))
 
-test = np.random.rand(500, 500)
+test = np.random.rand(100, 100)
 
-for i in range(0, 500):
+for i in range(0, 100):
     test.itemset((i, i), 0)
 
 start = time.time()
@@ -58,6 +58,7 @@ floyd_warshall(test)
 end = time.time()
 
 
+ 
 libtime = end-start
 start = time.time()
 shortest_path(test)
