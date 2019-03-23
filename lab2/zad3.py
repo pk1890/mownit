@@ -68,4 +68,4 @@ end = time.time()
 shorttime = end-start
 
 
-print("lib time:", libtime, "mytime: ", shorttime)
+print("floyd time:", libtime, "mytime: ", shorttime)

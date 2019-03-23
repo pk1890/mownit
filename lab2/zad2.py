@@ -17,10 +17,15 @@ def doolitleLU(matrix: np.ndarray):
     for col in range(0, size):
         if(matrix.item((col, col)) == 0):
             for row in range(col, size):
-                if(matrix.item((row, col)) != 0):
+                if(abs(matrix.item((row, col))) > abs(matrix.item((col,col)))):
                     matrix[[col, row]] = matrix[[row, col]]
                     break
+    print(L)
+    print(U)
+    print("++++++++++++++++++++++++++++=")
 
+    print(0*L)
+    print(0*U)
     for column in range(0, size):
         for row in range(column, size):
             sum = 0

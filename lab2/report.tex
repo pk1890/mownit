@@ -157,6 +157,21 @@ np.set_printoptions(suppress=True)
 
 doolitleLU(np.matrix('0 1 2 ; 4 5 6 ; 8 9 10'))  
 \end{minted}{Python}
+
+\begin{lstlisting}
+	[[ 4  5  6]
+	[ 0  1  2]
+	[ 8  9 10]]
+	[[ 1.00000000e+000  6.94327138e-310  4.83245960e+276]
+	[-8.03704345e-095  1.00000000e+000  8.48585418e-096]
+	[ 2.00000000e+000 -1.00000000e+000  1.00000000e+000]]
+	[[4. 5. 6.]
+	[0. 1. 2.]
+	[0. 0. 0.]]
+\end{lstlisting}
+
+wynik dla macierzy L wynika z niedoskonałości arytmetyki komputerowej
+
 \section{Implementacja algorytmu Floyd-Warshall przy pomocy mnożenia macierzy. Język Python bądź C/C++ i prosty przykład z porównaniem wydajnościowym do wersji z pętlami mnożącymi. http://phdopen.mimuw.edu.pl/lato07/paths1.pdf
 }
 \begin{minted}{Python}
