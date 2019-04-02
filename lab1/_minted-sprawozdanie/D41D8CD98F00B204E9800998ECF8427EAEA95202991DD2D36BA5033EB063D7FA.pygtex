@@ -1,0 +1,77 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{import} \PYG{n}{numpy} \PYG{n}{as} \PYG{n}{np}
+
+    \PYG{n}{import} \PYG{n}{time}
+
+    \PYG{n}{def} \PYG{n+nf}{solve}\PYG{p}{(}\PYG{n+nl}{matrix} \PYG{p}{:}\PYG{n}{np}\PYG{p}{.}\PYG{n}{ndarray}\PYG{p}{,} \PYG{n+nl}{vector}\PYG{p}{:} \PYG{n}{np}\PYG{p}{.}\PYG{n}{ndarray}\PYG{p}{)}\PYG{o}{:}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])} \PYG{o}{:}
+           \PYG{n}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}macierz musi byc kwadratowa\PYGZdq{}}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{])}
+           \PYG{n}{exit}\PYG{p}{()}
+
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{vector}\PYG{p}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{!=} \PYG{l+m+mi}{1} \PYG{n}{and} \PYG{n}{vector}\PYG{p}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])} \PYG{o}{:}
+           \PYG{n}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}macierz musi byc kwadratowa\PYGZdq{}}\PYG{p}{,} \PYG{n}{matrix}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{])}
+           \PYG{n}{exit}\PYG{p}{()}
+
+        \PYG{c+cp}{\PYGZsh{} print(matrix)}
+        \PYG{c+cp}{\PYGZsh{} print(np.linalg.inv(matrix))}
+        \PYG{c+cp}{\PYGZsh{} print(\PYGZdq{}====================\PYGZdq{})}
+        \PYG{n}{size} \PYG{o}{=} \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+        \PYG{n}{result} \PYG{o}{=} \PYG{n}{np}\PYG{p}{.}\PYG{n}{identity}\PYG{p}{(}\PYG{n}{size}\PYG{p}{)}
+
+        \PYG{k}{for} \PYG{n}{column} \PYG{n}{in} \PYG{n}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{size}\PYG{p}{)}\PYG{o}{:}
+            \PYG{k}{for} \PYG{n}{row} \PYG{n}{in} \PYG{n}{range}\PYG{p}{(}\PYG{n}{column}\PYG{p}{,} \PYG{n}{size}\PYG{p}{)}\PYG{o}{:}
+                \PYG{k}{if} \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{row}\PYG{p}{,} \PYG{n}{column}\PYG{p}{))} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{o}{:}
+                    \PYG{n}{matrix}\PYG{p}{[[}\PYG{n}{column}\PYG{p}{,} \PYG{n}{row}\PYG{p}{]]} \PYG{o}{=} \PYG{n}{matrix}\PYG{p}{[[}\PYG{n}{row}\PYG{p}{,} \PYG{n}{column}\PYG{p}{]]}
+                    \PYG{n}{result}\PYG{p}{[[}\PYG{n}{column}\PYG{p}{,} \PYG{n}{row}\PYG{p}{]]} \PYG{o}{=} \PYG{n}{result}\PYG{p}{[[}\PYG{n}{row}\PYG{p}{,} \PYG{n}{column}\PYG{p}{]]}                 \PYG{err}{\PYGZsh{}} \PYG{n}{zamien} \PYG{n}{zawsze} \PYG{n}{tak}\PYG{p}{,} \PYG{n}{aby} \PYG{n}{bu}
+            \PYG{n}{value} \PYG{o}{=} \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{column}\PYG{p}{,} \PYG{n}{column}\PYG{p}{))}
+            \PYG{k}{for} \PYG{n}{row} \PYG{n}{in} \PYG{n}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{size}\PYG{p}{)}\PYG{o}{:}
+                \PYG{k}{if}\PYG{p}{(}\PYG{n}{row} \PYG{o}{==} \PYG{n}{column}\PYG{p}{)}\PYG{o}{:} \PYG{k}{continue}
+                \PYG{n}{item} \PYG{o}{=} \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{row}\PYG{p}{,} \PYG{n}{column}\PYG{p}{))}
+                \PYG{n}{times} \PYG{o}{=} \PYG{p}{(}\PYG{n}{item}\PYG{o}{/}\PYG{n}{value}\PYG{p}{)}
+                \PYG{k}{for} \PYG{n}{cell} \PYG{n}{in} \PYG{n}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{size}\PYG{p}{)}\PYG{o}{:}
+                    \PYG{n}{curr} \PYG{o}{=} \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{row}\PYG{p}{,} \PYG{n}{cell}\PYG{p}{))}
+                    \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{itemset}\PYG{p}{((}\PYG{n}{row}\PYG{p}{,} \PYG{n}{cell}\PYG{p}{),} \PYG{n}{curr} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{matrix}\PYG{p}{.}\PYG{n}{item}\PYG{p}{(}\PYG{n}{column}\PYG{p}{,} \PYG{n}{cell}\PYG{p}{)}\PYG{o}{*}\PYG{n}{times}\PYG{p}{))}
+
+                    \PYG{n}{curr} \PYG{o}{=} \PYG{n}{result}\PYG{p}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{row}\PYG{p}{,} \PYG{n}{cell}\PYG{p}{))}
+                    \PYG{n}{result}\PYG{p}{.}\PYG{n}{itemset}\PYG{p}{((}\PYG{n}{row}\PYG{p}{,} \PYG{n}{cell}\PYG{p}{),} \PYG{n}{curr} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{result}\PYG{p}{.}\PYG{n}{item}\PYG{p}{(}\PYG{n}{column}\PYG{p}{,} \PYG{n}{cell}\PYG{p}{)}\PYG{o}{*}\PYG{n}{times}\PYG{p}{))}
+
+        \PYG{k}{for} \PYG{n}{column} \PYG{n}{in} \PYG{n}{range} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{size}\PYG{p}{)}\PYG{o}{:}
+            \PYG{n}{value} \PYG{o}{=} \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{column}\PYG{p}{,} \PYG{n}{column}\PYG{p}{))}
+            \PYG{k}{for} \PYG{n}{row} \PYG{n}{in} \PYG{n}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{size}\PYG{p}{)}\PYG{o}{:}
+                \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{itemset}\PYG{p}{((}\PYG{n}{column}\PYG{p}{,} \PYG{n}{row}\PYG{p}{),} \PYG{n}{matrix}\PYG{p}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{column}\PYG{p}{,} \PYG{n}{row}\PYG{p}{))} \PYG{o}{/} \PYG{n}{value}\PYG{p}{)}
+                \PYG{n}{result}\PYG{p}{.}\PYG{n}{itemset}\PYG{p}{((}\PYG{n}{column}\PYG{p}{,} \PYG{n}{row}\PYG{p}{),} \PYG{n}{result}\PYG{p}{.}\PYG{n}{item}\PYG{p}{((}\PYG{n}{column}\PYG{p}{,} \PYG{n}{row}\PYG{p}{))} \PYG{o}{/} \PYG{n}{value}\PYG{p}{)}
+
+
+        \PYG{c+cp}{\PYGZsh{} print( matrix)}
+        \PYG{c+cp}{\PYGZsh{} print(result)}
+
+
+        \PYG{k}{return} \PYG{n}{np}\PYG{p}{.}\PYG{n}{matmul}\PYG{p}{(}\PYG{n}{result}\PYG{p}{,} \PYG{n}{vector}\PYG{p}{)}
+            \PYG{c+cp}{\PYGZsh{} for i in range(0, size):}
+            \PYG{c+cp}{\PYGZsh{} for row in range(0, size):}
+
+    \PYG{c+cp}{\PYGZsh{}print(np.matrix(\PYGZsq{}1 3 2 }\PYG{p}{;} \PYG{l+m+mi}{1} \PYG{l+m+mi}{3} \PYG{l+m+mi}{3} \PYG{err}{\PYGZsq{}}\PYG{p}{).}\PYG{n}{shape}\PYG{p}{)}
+    \PYG{c+cp}{\PYGZsh{}solve(np.matrix(\PYGZsq{}0 2 0 4 ; 0 0 0 3 ; 3 2 0 2 ; 0 2 3 4\PYGZsq{}))}
+
+    \PYG{n}{dim} \PYG{o}{=} \PYG{l+m+mi}{600}
+    \PYG{n}{m} \PYG{o}{=} \PYG{l+m+mi}{1000} \PYG{o}{*} \PYG{n}{np}\PYG{p}{.}\PYG{n}{random}\PYG{p}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{dim}\PYG{p}{,} \PYG{n}{dim}\PYG{p}{)}
+    \PYG{n}{v} \PYG{o}{=} \PYG{l+m+mi}{1000} \PYG{o}{*} \PYG{n}{np}\PYG{p}{.}\PYG{n}{random}\PYG{p}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{dim}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{n}{print}\PYG{p}{(}\PYG{n}{m}\PYG{p}{)}
+
+    \PYG{n}{start} \PYG{o}{=} \PYG{n}{time}\PYG{p}{.}\PYG{n}{time}\PYG{p}{()}
+    \PYG{n}{reslib} \PYG{o}{=} \PYG{n}{np}\PYG{p}{.}\PYG{n}{linalg}\PYG{p}{.}\PYG{n}{solve}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)}
+    \PYG{n}{end} \PYG{o}{=} \PYG{n}{time}\PYG{p}{.}\PYG{n}{time}\PYG{p}{()}
+
+    \PYG{n}{libtime} \PYG{o}{=} \PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}
+
+    \PYG{n}{start} \PYG{o}{=} \PYG{n}{time}\PYG{p}{.}\PYG{n}{time}\PYG{p}{()}
+    \PYG{n}{myres} \PYG{o}{=} \PYG{n}{solve}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)}
+    \PYG{n}{end} \PYG{o}{=} \PYG{n}{time}\PYG{p}{.}\PYG{n}{time}\PYG{p}{()}
+
+    \PYG{n}{mytime} \PYG{o}{=} \PYG{n}{end}\PYG{o}{\PYGZhy{}}\PYG{n}{start}
+
+
+    \PYG{n}{print}\PYG{p}{(}\PYG{n}{reslib} \PYG{o}{\PYGZhy{}} \PYG{n}{myres}\PYG{p}{)}
+
+    \PYG{n}{print}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}lib time:\PYGZdq{}}\PYG{p}{,} \PYG{n}{libtime}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}mytime: \PYGZdq{}}\PYG{p}{,} \PYG{n}{mytime}\PYG{p}{)}
+\end{Verbatim}

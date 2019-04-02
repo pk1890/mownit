@@ -1,6 +1,5 @@
 
-\section{Napisz (Python) i sprawdź funkcję rozwiązującą układ równań liniowych n×n metodą Gaussa-Jordana. Dla rozmiarów macierzy współczynników większych niż 500×500 porównaj czasy działania zaimplementowanej funkcji z czasami uzyskanymi dla wybranych funkcji bibliotecznych.}
-
+\section{Napisz (Python)}
 \begin{minted}{Python}
 
     import numpy as np 
@@ -8,7 +7,7 @@
     import time
     
     def solve(matrix :np.ndarray, vector: np.ndarray):
-        if(matrix.shape[0] != matrix.shape[1]) :
+        if(matrix.shape[1] != matrix.shape[1]) :
            print("macierz musi byc kwadratowa", matrix[1][0])
            exit()
     
@@ -81,7 +80,7 @@
     
     
 
-\end{minted}{Python}
+\end{minted}
 
 
 Wyniki dla macierzy 600x600:
@@ -156,7 +155,7 @@ def doolitleLU(matrix: np.ndarray):
 np.set_printoptions(suppress=True)
 
 doolitleLU(np.matrix('0 1 2 ; 4 5 6 ; 8 9 10'))  
-\end{minted}{Python}
+\end{minted}
 
 \begin{lstlisting}
 	[[ 4  5  6]
@@ -247,12 +246,12 @@ shorttime = end-start
 
 
 print("lib time:", libtime, "mytime: ", shorttime)
-\end{minted}{Python}
+\end{minted}
 
 \begin{lstlisting}
     lib time: 0.6981124877929688 mytime:  2.9570999145507812
 \end{lstlisting}
-\section{Zaimplementuj 3 metody mnożenia macierzy rzadkich wedle formatów zaprezentowanych pod wskazanym linkiem: https://docs.nvidia.com/cuda/cusparse/index.html (COO/CSR/CSC/ELL) i porównaj jak ilość zer wpływa na czas mnożenia macierzy i ilość zużytej pamięci. Porównanie dokonaj do standardowej metody mnożenia macierzy o złożoności N^3. Język C/C++. Uszczegółowienie: można wykorzystać https://www.it.uu.se/education/phd_studies/phd_courses/pasc/lecture-1 i można pokazać to na przykładzie mnożenia macierz-wektor.
+\section{Zaimplementuj 3 metody mnożenia macierzy rzadkich wedle formatów zaprezentowanych pod wskazanym linkiem: https://docs.nvidia.com/cuda/cusparse/index.html (COO/CSR/CSC/ELL) i porównaj jak ilość zer wpływa na czas mnożenia macierzy i ilość zużytej pamięci. Porównanie dokonaj do standardowej metody mnożenia macierzy o złożoności $N^3$. Język C/C++. Uszczegółowienie: można wykorzystać https://www.it.uu.se/education/phd\_studies/phd\_courses/pasc/lecture-1 i można pokazać to na przykładzie mnożenia macierz-wektor.
 }
 
 \begin{minted}{C++}
@@ -626,7 +625,7 @@ int main(){
     cout << "\nELL    version time elapsed: " << (end-start)*1.0/CLOCKS_PER_SEC << " ===========\n";
 
 
-\end{minted}{C++}
+\end{minted}
 
 \begin{lstlisting}
     

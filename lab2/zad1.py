@@ -77,8 +77,7 @@ print("lib time:", libtime, "mytime: ", mytime)
 
 
 
-#matrix = [[-1, 2, 1, -1], [1, -3, -2, -1], [3, -1, -1, 4]]
-# m = np.matrix('-1 2 1 ; 1 -3 -2  ; 3 -1 -1')
+#matrix = [[-1, 2, 1, -1], [1, -3, -2, -1], [3, -1, -1, 4]]# m = np.matrix('-1 2 1 ; 1 -3 -2  ; 3 -1 -1')
 
 # print(solve(m))
 

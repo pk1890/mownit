@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{bisect}\PYG{p}{(}\PYG{n}{F}\PYG{p}{,} \PYG{n+nb}{min}\PYG{p}{:}\PYG{n+nb}{float}\PYG{p}{,} \PYG{n+nb}{max}\PYG{p}{:}\PYG{n+nb}{float}\PYG{p}{,} \PYG{n}{accuracy}\PYG{p}{:}\PYG{n+nb}{float}\PYG{p}{,} \PYG{n}{itNo}\PYG{p}{:}\PYG{n+nb}{int}\PYG{p}{):}
+    \PYG{n}{center} \PYG{o}{=} \PYG{p}{(}\PYG{n+nb}{max}\PYG{o}{+}\PYG{n+nb}{min}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n+nb}{abs}\PYG{p}{(}\PYG{n}{F}\PYG{p}{(}\PYG{n}{center}\PYG{p}{))} \PYG{o}{\PYGZlt{}} \PYG{n}{accuracy} \PYG{p}{):}
+        \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Used iterations:\PYGZdq{}}\PYG{p}{,} \PYG{n}{itNo}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{center}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{F}\PYG{p}{(}\PYG{n}{center}\PYG{p}{)}\PYG{o}{*}\PYG{n}{F}\PYG{p}{(}\PYG{n+nb}{min}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{):}
+            \PYG{k}{return} \PYG{n}{bisect}\PYG{p}{(}\PYG{n}{F}\PYG{p}{,} \PYG{n+nb}{min}\PYG{p}{,} \PYG{n}{center}\PYG{p}{,} \PYG{n}{accuracy}\PYG{p}{,} \PYG{n}{itNo}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{bisect}\PYG{p}{(}\PYG{n}{F}\PYG{p}{,} \PYG{n}{center}\PYG{p}{,} \PYG{n+nb}{max}\PYG{p}{,} \PYG{n}{accuracy}\PYG{p}{,} \PYG{n}{itNo}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{n}{Fa} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:} \PYG{n}{math}\PYG{o}{.}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{*} \PYG{n}{math}\PYG{o}{.}\PYG{n}{cosh}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}
+\PYG{n}{Fb} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{tan}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{}[0, 2pi] z badania przebiegu zmienności wiemy że jedno zero jesst w [0.5, 1] a drugie w [3, 4]}
+\PYG{n}{Fc} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:} \PYG{l+m+mi}{2}\PYG{o}{**}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{x}\PYG{p}{)} \PYG{o}{+} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{math}\PYG{o}{.}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{6}
+\end{Verbatim}

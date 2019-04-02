@@ -1,0 +1,132 @@
+\section{Napisz w Python bądź C/C++ funkcję rozwiązującą przy pomocy metody bisekcji funkcję f. Funkcja przyjmuje następujące argumenty:
+krańce przedziału,
+błąd bezwzględny obliczeń.
+Funkcja ma zwracać wyznaczone miejsce zerowe i liczbę iteracji potrzebną do uzyskania określonej dokładności. Przetestuj działanie metody dla funkcji podanych na początku instrukcji.
+Napisz w Python bądź C/C++ funkcję rozwiązującą przy pomocy metody bisekcji funkcję f. Funkcja przyjmuje następujące argumenty:
+krańce przedziału,
+błąd bezwzględny obliczeń.
+}
+
+\begin{minted}{Python}
+
+
+def bisect(F, min:float, max:float, accuracy:float, itNo:int):
+    center = (max+min)/2
+    if(abs(F(center)) < accuracy ):
+        print("Used iterations:", itNo)
+        return center
+    else:
+        if(F(center)*F(min) < 0):
+            return bisect(F, min, center, accuracy, itNo+1)
+        else:
+            return bisect(F, center, max, accuracy, itNo+1)
+
+Fa = lambda x: math.cos(x) * math.cosh(x) - 1
+Fb = lambda x: 1/x - np.tan(x) #[0, 2pi] z badania przebiegu zmienności wiemy że jedno zero jesst w [0.5, 1] a drugie w [3, 4]
+Fc = lambda x: 2**(-x) + math.exp(x) + 2 * math.cos(x) - 6
+
+\end{minted}
+
+\section{Napisz w Python bądź C/C++ funkcję rozwiązującą przy pomocy metody Newtona funkcję f. Funkcja ma wykorzystywać dwa kryteria stopu:
+maksymalną liczbę iteracji,
+moduł różnicy kolejnych przybliżeń mniejszy od danej wartości eps.
+Oprócz przybliżonej wartości pierwiastka funkcja ma zwrócić liczbę iteracji potrzebną do uzyskania określonej dokładności eps. Porównaj zbieżność metody ze zbieżnością uzyskaną dla metody bisekcji.
+Napisz w Python bądź C/C++ funkcję rozwiązującą przy pomocy metody bisekcji funkcję f. Funkcja przyjmuje następujące argumenty:
+krańce przedziału,
+błąd bezwzględny obliczeń.
+}
+
+\begin{minted}{Python}
+
+
+
+def newton_solve(F, min:float, max:float, accuracy:float, itLim: int):
+    x_last = np.infty
+    x = min
+    i = 0
+    while(abs(x - x_last) > accuracy and i < itLim):
+        x_last = x
+        x = x - (F(x) / derivative(F, x, 1e-10))
+        i+=1
+    return x
+
+\end{minted}
+
+\section{Napisz w Python bądź C/C++ funkcję rozwiązującą przy pomocy metody Newtona funkcję f. Funkcja ma wykorzystywać dwa kryteria stopu:
+maksymalną liczbę iteracji,
+moduł różnicy kolejnych przybliżeń mniejszy od danej wartości eps.
+Oprócz przybliżonej wartości pierwiastka funkcja ma zwrócić liczbę iteracji potrzebną do uzyskania określonej dokładności eps. Porównaj zbieżność metody ze zbieżnością uzyskaną dla metody bisekcji.
+Napisz w Python bądź C/C++ funkcję rozwiązującą przy pomocy metody bisekcji funkcję f. Funkcja przyjmuje następujące argumenty:
+krańce przedziału,
+błąd bezwzględny obliczeń.
+}
+
+\begin{minted}{Python}
+
+
+def euler_solve(F, min:float, max:float, accuracy:float, itLim: int):
+    x1 = min
+    x2 = max
+    i = 0
+    while(abs(x2-x1) > accuracy and i < itLim):
+        x3 = (F(x2)*x1-F(x1)*x2)/(F(x2)-F(x1))
+        x1 = x2
+        x2 = x3
+        i+=1
+    return x3
+
+
+
+\end{minted}
+
+
+\section{Podsumowanie}
+
+\subsection{Wykresy funkcji}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Fa}
+    \caption{Wykres funkcji a}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Fb}
+    \caption{Wykres funkcji b}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Fc}
+    \caption{Wykres funkcji c}
+\end{figure}
+\begin{lstlisting}
+   FA=======
+Used iterations bisect: 43
+Bisect:  4.730040744862693
+Used iterations Newton: 4
+Newton:  4.730040744862704
+Used iterations Euler : 7
+Euler :  4.730040744862704
+FB==(1)=====
+Used iterations bisect: 38
+Bisect:  0.8603335890193193
+Used iterations Newton: 5
+Newton:  0.8603335890193797
+Used iterations Euler : 5
+Euler :  0.8603335890193797
+FB==(2)=====
+Used iterations bisect: 37
+Bisect:  3.425618459481484
+Used iterations Newton: 5
+Newton:  3.4256184594817283
+Used iterations Euler : 7
+Euler :  3.4256184594817283
+FC========
+Used iterations bisect: 40
+Bisect:  1.8293836019338414
+Used iterations Newton: 9
+Newton:  1.829383601933849
+Used iterations Euler : 11
+Euler :  1.8293836019338487 
+\end{lstlisting}
