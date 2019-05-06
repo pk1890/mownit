@@ -1,13 +1,13 @@
 import cv2
 import numpy as np
-img = cv2.imread('w1p.png',1)
+img = cv2.imread('k2.jpg',1)
 output = img.copy()
 img = cv2.medianBlur(img,5)
 cimg = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 edges = cv2.Canny(cimg,100,150)
 
 # for (i, j) in rads:
-circles = cv2.HoughCircles(edges,cv2.HOUGH_GRADIENT,1,20,
+circles = cv2.HoughCircles(edges,cv2.HOUGH_GRADIENT,1,21,
                             param1=60,param2=24,minRadius=1, maxRadius=50)
 if circles is not None:
     circles = np.uint16(np.around(circles))
