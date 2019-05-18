@@ -37,6 +37,7 @@ void printSudoku(short sudoku[9][9]){
 }
 
 void fprintSudoku(short sudoku[9][9], FILE* fp){
+    fprintf(fp, "NUMBER %d", counter+1);
     fprintf(fp, NEW_ROW);
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
@@ -60,8 +61,6 @@ short used_in_row(short grid[N][N], int row, int num)
 	return false;
 }
 
-// Returns a shortean which indicates whether any assigned entry
-// in the specified column matches the given number. 
 short used_in_col(short grid[N][N], int col, int num)
 {
 	for (int row = 0; row < N; row++)
@@ -72,8 +71,6 @@ short used_in_col(short grid[N][N], int col, int num)
 	return false;
 }
 
-// Returns a shortean which indicates whether any assigned entry
-// within the specified 3x3 box matches the given number. 
 short used_in_box(short grid[N][N], int box_start_row, int box_start_col, int num)
 {
 	for (int row = 0; row < 3; row++)
@@ -85,12 +82,8 @@ short used_in_box(short grid[N][N], int box_start_row, int box_start_col, int nu
 	return false;
 }
 
-// Returns a shortean which indicates whether it will be legal to assign
-// num to the given row,col location.
 short is_safe(short grid[N][N], int row, int col, int num)
 {
-	// Check if 'num' is not already placed in current row,
-	// current column and current 3x3 box 
 	return !used_in_row(grid, row, num) &&
 		!used_in_col(grid, col, num) &&
 		!used_in_box(grid, row - row % 3, col - col % 3, num);
