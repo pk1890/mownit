@@ -34,54 +34,49 @@ def polynomialInterp(X, Y):
             if not j == i:
                 ret = ret * np.poly1d([1/(X[i]-X[j]), -X[j]/(X[i]-X[j])])
         inter = inter + (Y[i] * ret)
-    print(inter)
+    # print(inter)
     return inter
 
 
 
-def spline_cubic_interpolation(xs, ys):
-   
-    b, c, d, w = [], [], [], []
-
-   
-    nx = len(xs)  # dimension of x
+def CubicSplineInterp(xs, ys):
+    b, c, d  = [], [], []
+    dim = len(xs)  # dimension of x
     h = np.diff(xs)
 
     # calc coefficient c
     a = [y for y in ys]
 
     
-    A = np.zeros((nx, nx))
+    A = np.zeros((dim, dim))
     A[0, 0] = 1.0
-    for i in range(nx - 1):
-        if i != (nx - 2):
-            A[i + 1, i + 1] = 2.0 * (h[i] + h[i + 1])
-        A[i + 1, i] = h[i]
-        A[i, i + 1] = h[i]
-
     A[0, 1] = 0.0
-    A[nx - 1, nx - 2] = 0.0
-    A[nx - 1, nx - 1] = 1.0
+    A[dim - 1, dim - 2] = 0.0
+    A[dim - 1, dim - 1] = 1.0
 
-    B = np.zeros(nx)
-    for i in range(nx - 2):
-        B[i + 1] = 3.0 * (a[i + 2] - a[i + 1]) / \
-            h[i + 1] - 3.0 * (a[i + 1] - a[i]) / h[i]
+    for i in range(dim - 1):
+        if i != (dim - 2):
+            A[i + 1, i + 1] = 2.0 * (h[i] + h[i + 1])     #macierz trójprzekatniowa h[i], 2h[i]+2h[i+1], h[i+1]
+        A[i + 1, i] = h[i]
+        A[i, i + 1] = h[i]  
+
+
+    B = np.zeros(dim)
+    for i in range(dim - 2):
+        B[i + 1] = 3.0 *((a[i + 2] - a[i + 1]) / h[i + 1] - (a[i + 1] - a[i]) / h[i]) 
         
     c = np.linalg.solve(A, B)
     
-    for i in range(nx - 1):
-        d.append((c[i + 1] - c[i]) / (3.0 * h[i]))
-        tb = (a[i + 1] - a[i]) / h[i] - h[i] * \
-            (c[i + 1] + 2.0 * c[i]) / 3.0
-        b.append(tb)
-    def fun(X):
+    for i in range(dim - 1):
+        d.append((c[i + 1] - c[i]) / (3.0 * h[i]))  # d = 1/3 delta c/delta x
+        b.append((a[i + 1] - a[i]) / h[i] - h[i] * (c[i + 1] + 2.0 * c[i]) / 3.0)
+    def readCubInterpData(X):
         Y = []
         for x in X: 
             if x < xs[0]:
                 i = 0 
             elif x >= xs[-1]:
-                i = nx-2
+                i = dim-2
             else:
                 i = bisect.bisect(xs, x) - 1
             
@@ -90,7 +85,7 @@ def spline_cubic_interpolation(xs, ys):
         return Y
 
         
-    return lambda x: fun(x)
+    return lambda x: readCubInterpData(x)
     
 
 # x2 = lambda x: x*x
@@ -125,9 +120,9 @@ plt.show()
 plt.plot(pts, x2(pts))
 plt.plot(interpPoints, x2(interpPoints), 'rd')
 start = time.time()
-interpolate = spline_cubic_interpolation(interpPoints, fInterp)(pts)
+interpolate = CubicSplineInterp(interpPoints, fInterp)(pts)
 end = time.time()
 
-print("Polynomial time: ", end-start)
+print("Cubic time: ", end-start)
 plt.plot(pts, interpolate)
 plt.show()
